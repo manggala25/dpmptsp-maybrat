@@ -23,10 +23,8 @@
                                     <tr>
                                         <th class="text-uppercase text-primary text-sm font-weight-bold">Nama Dinas</th>
                                         <th class="text-uppercase text-primary text-sm font-weight-bold">Deskripsi</th>
-                                        <th class="text-uppercase text-primary text-sm font-weight-bold">Dasar Hukum</th>
                                         <th class="text-uppercase text-primary text-sm font-weight-bold">Visi</th>
                                         <th class="text-uppercase text-primary text-sm font-weight-bold">Misi</th>
-                                        <th class="text-uppercase text-primary text-sm font-weight-bold">Tujuan</th>
                                         <th class="text-center text-uppercase text-primary text-sm font-weight-bold">Aksi</th>
                                     </tr>
                                 </thead>
@@ -37,19 +35,13 @@
                                             <h6 class="mb-0 text-sm">{{ $item->nama_dinas }}</h6>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold">{{ $item->deskripsi }}</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-xs font-weight-bold">{{ $item->dasarhukum }}</p>
+                                            <p class="text-xs font-weight-bold wrap-text" style="max-width: 20rem; word-wrap: break-word; white-space: normal;">{{ $item->deskripsi }}</p>
                                         </td>
                                         <td>
                                             <p class="text-xs font-weight-bold">{{ $item->visi }}</p>
                                         </td>
                                         <td>
                                             <p class="text-xs font-weight-bold">{{ $item->misi }}</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-xs font-weight-bold">{{ $item->tujuan }}</p>
                                         </td>
                                         <td class="text-center">
                                             <div class="d-flex align-items-center justify-content-center">
@@ -62,10 +54,6 @@
                                                 <button type="button" class="btn btn-link text-secondary mb-0" data-bs-toggle="modal" data-bs-target="#editData{{ $item->id }}">
                                                     <i class="fa-solid fa-pen-to-square text-primary fa-lg"></i>
                                                 </button>
-                                                <!-- Tombol Hapus -->
-                                                {{-- <button type="button" class="btn btn-link text-secondary mb-0" data-bs-toggle="modal" data-bs-target="#deleteData{{ $item->id }}">
-                                                    <i class="fa-solid fa-trash text-danger fa-lg"></i>
-                                                </button> --}}
                                             </div>
                                         </td>
                                     </tr>
@@ -82,8 +70,6 @@
   </main>
 
   @include('profile_dinas.detail')
-  {{-- @include('profile_dinas.create') --}}
-  {{-- @include('profile_dinas.delete') --}}
   @include('profile_dinas.edit')
 
   @include('layouts.setting-theme')

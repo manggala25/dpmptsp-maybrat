@@ -10,7 +10,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="detail_nama_partner" class="col-form-label">Nama Partner:</label>
-                    <input type="text" class="form-control" id="detail_nama_partner" name="detail_nama_partner" value="{{ $partners->nama_informasi }}" readonly>
+                    <input type="text" class="form-control" id="detail_nama_partner" name="detail_nama_partner" value="{{ $partners->nama_partner }}" readonly>
                 </div>
                 <div class="form-group">
                     <label for="detail_link" class="col-form-label">Link:</label>
@@ -18,7 +18,7 @@
                 </div>
                 <div class="form-group">
                     <label for="detail_logo" class="col-form-label">Logo:</label><br>
-                    <img src="{{ asset('storage/' . $partners->logo) }}" class="mt-2" style="max-width: 200px;" alt="logo {{ $partners->nama_informasi }}">
+                    <img src="{{ asset('storage/' . $partners->logo) }}" class="mt-2" style="max-width: 200px;" alt="logo {{ $partners->nama_partner }}">
                 </div>
                 <div class="form-group">
                     <label class="col-form-label">Status:</label><br>

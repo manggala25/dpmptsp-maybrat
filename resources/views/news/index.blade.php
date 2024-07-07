@@ -14,7 +14,7 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                        <h4 class="card-title">Data news</h4>
+                        <h4 class="card-title">Data Berita</h4>
                         <button type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#tambahData"><i class="fa-solid fa-plus me-2"></i>Tambah Data</button>
                     </div>
                     <div class="card-body">
@@ -24,9 +24,7 @@
                                     <tr>
                                         {{-- <th></th> --}}
                                         <th class="text-uppercase text-primary text-sm font-weight-bold">Judul Berita</th>
-                                        <th class="text-uppercase text-primary text-sm font-weight-bold">penulis</th>
                                         <th class="text-uppercase text-primary text-sm font-weight-bold">Kategori</th>
-                                        <th class="text-uppercase text-primary text-sm font-weight-bold">Tanggal Dibuat</th>
                                         <th class="text-center text-uppercase text-primary text-sm font-weight-bold">Status</th>
                                         <th class="text-center text-uppercase text-primary text-sm font-weight-bold">Aksi</th>
                                     </tr>
@@ -37,14 +35,8 @@
                                         <td>
                                            <h6 class="mb-0 text-sm">{{ $item->judul }}</h6>
                                         </td>
-                                        <td>
-                                            <h6 class="mb-0 text-sm">{{ $item->penulis }}</h6>
-                                        </td>
                                         <td>    
                                             <h6 class="mb-0 text-sm">{{ $item->kategori }}</h6>
-                                        </td>
-                                        <td>
-                                            <h6 class="mb-0 text-sm">{{ $item->tanggal_publikasi }}</h6>
                                         </td>
                                         <td class="text-center">
                                             <span class="badge badge-sm 

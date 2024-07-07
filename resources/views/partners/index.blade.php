@@ -39,7 +39,7 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <img src="{{ asset('storage/' . $item->logo) }}" class="avatar avatar-xl me-2" alt="gambar {{ $item->nama_partner }}">
+                                                <img src="{{ asset('storage/' . $item->logo) }}" class="avatar avatar-xl me-2" alt="gambar {{ $item->nama_partner }}" style="object-fit: contain">
                                             </td>
                                             <td>
                                                 <p class="text-xs font-weight-bold">{{ $item->link }}</p>

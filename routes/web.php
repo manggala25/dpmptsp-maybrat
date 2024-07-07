@@ -9,9 +9,23 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PartnersController;
 use App\Http\Controllers\TestimoniController;
+use App\Http\Controllers\TugasDinasController;
+use App\Http\Controllers\FungsiController;
+use App\Http\Controllers\LayananController;
 
+
+//route frontend
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.index');
+});
+Route::get('/profil', function () {
+    return view('frontend.profil');
+});
+Route::get('/kontak', function () {
+    return view('frontend.kontak');
+});
+Route::get('/artikel', function () {
+    return view('frontend.artikel');
 });
 
 Route::get('/dashboard', function () {
@@ -47,6 +61,14 @@ Route::middleware('auth')->group(function () {
     // Program Kerja Routes
     Route::resource('program_kerja', ProgramKerjaController::class)->except(['destroy']);
     Route::delete('/program_kerja/{id}', [ProgramKerjaController::class, 'destroy'])->name('program_kerja.destroy');
+    
+    // Fungsi Kerja Routes
+    Route::resource('fungsi', FungsiController::class)->except(['destroy']);
+    Route::delete('/fungsi/{id}', [FungsiController::class, 'destroy'])->name('fungsi.destroy');
+    
+    // Tugas Routes
+    Route::resource('tugas_dinas', TugasDinasController::class)->except(['destroy']);
+    Route::delete('/tugas_dinas/{id}', [TugasDinasController::class, 'destroy'])->name('tugas_dinas.destroy');
 
     // Contact Routes
     Route::resource('contact', ContactController::class)->except(['destroy']);
@@ -61,6 +83,11 @@ Route::middleware('auth')->group(function () {
     Route::resource('testimoni', TestimoniController::class)->except(['destroy']);
     Route::delete('/testimoni/{id}', [TestimoniController::class, 'destroy'])->name('testimoni.destroy');
     Route::put('/testimoni/{testimoni}', [TestimoniController::class, 'update'])->name('testimoni.update');
+
+    // Layanan Routes
+    Route::resource('layanan', LayananController::class)->except(['destroy']);
+    Route::delete('/layanan/{id}', [LayananController::class, 'destroy'])->name('layanan.destroy');
+    Route::put('/layanan/{layanan}', [LayananController::class, 'update'])->name('layanan.update');
 });
 
 require __DIR__ . '/auth.php';

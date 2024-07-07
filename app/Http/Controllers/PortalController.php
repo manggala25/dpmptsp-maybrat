@@ -136,6 +136,6 @@ class PortalController extends Controller
 
         $portal->delete();
 
-        return redirect()->route('portal.index')->with('success', 'Portal berhasil dihapus');
+        return redirect()->back()->with('success', 'Data portal berhasil dihapus.');
     }
 }
