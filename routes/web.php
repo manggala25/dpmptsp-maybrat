@@ -28,6 +28,7 @@ Route::get('/artikel', function () {
     return view('frontend.artikel');
 });
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -52,6 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('news', NewsController::class)->except(['destroy']);
     Route::delete('/news/{id}', [NewsController::class, 'destroy'])->name('news.destroy');
     Route::put('/berita/{berita}', [NewsController::class, 'update'])->name('berita.update');
+    Route::get('/detail-artikel/{slug}', [NewsController::class, 'show'])->name('detail.artikel');
 
     // Profile Dinas Routes
     Route::resource('profile_dinas', ProfileDinasController::class)->except(['destroy']);

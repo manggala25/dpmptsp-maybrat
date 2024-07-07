@@ -33,6 +33,7 @@ class ProfileDinasController extends Controller
       'edit_visi' => 'required|string',
       'edit_misi' => 'required|string',
       'edit_tujuan' => 'required|string',
+      'edit_motto' => 'required|string',
       'edit_gambar_strukturorganisasi' => 'image|max:2048', // Contoh validasi untuk gambar, maksimal 2MB
       'edit_logo_dinas' => 'image|max:2048', // Contoh validasi untuk gambar, maksimal 2MB
     ]);
@@ -47,6 +48,7 @@ class ProfileDinasController extends Controller
     $profile_dinas->visi = $request->edit_visi;
     $profile_dinas->misi = $request->edit_misi;
     $profile_dinas->tujuan = $request->edit_tujuan;
+    $profile_dinas->motto = $request->edit_motto;
 
     // Mengelola upload gambar struktur organisasi jika ada
     if ($request->hasFile('edit_gambar_strukturorganisasi')) {

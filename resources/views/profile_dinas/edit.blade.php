@@ -17,23 +17,27 @@
                     </div>
                     <div class="form-group">
                         <label for="edit_deskripsi" class="col-form-label">Deskripsi:</label>
-                        <textarea class="form-control" id="edit_deskripsi" name="edit_deskripsi">{{ $item->deskripsi }}</textarea>
+                        <textarea class="form-control" id="edit_deskripsi" name="edit_deskripsi" rows="6">{{ $item->deskripsi }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="edit_dasarhukum" class="col-form-label">Dasar Hukum:</label>
-                        <textarea class="form-control" id="edit_dasarhukum" name="edit_dasarhukum">{{ $item->dasarhukum }}</textarea>
+                        <textarea class="form-control" id="edit_dasarhukum" name="edit_dasarhukum" rows="6">{{ $item->dasarhukum }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="edit_visi" class="col-form-label">Visi:</label>
-                        <textarea class="form-control" id="edit_visi" name="edit_visi">{{ $item->visi }}</textarea>
+                        <textarea class="form-control" id="edit_visi" name="edit_visi" rows="6">{{ $item->visi }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="edit_misi" class="col-form-label">Misi:</label>
-                        <textarea class="form-control" id="edit_misi" name="edit_misi">{{ $item->misi }}</textarea>
+                        <textarea class="form-control" id="edit_misi" name="edit_misi" rows="6">{{ $item->misi }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="edit_tujuan" class="col-form-label">Tujuan:</label>
-                        <textarea class="form-control" id="edit_tujuan" name="edit_tujuan">{{ $item->tujuan }}</textarea>
+                        <textarea class="form-control" id="edit_tujuan" name="edit_tujuan" rows="6">{{ $item->tujuan }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_motto" class="col-form-label">Motto Dinas:</label>
+                        <textarea class="form-control" id="edit_motto" name="edit_motto" rows="6">{{ $item->motto }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="edit_gambar_strukturorganisasi" class="col-form-label">Pilih Gambar Struktur Organisasi:</label>

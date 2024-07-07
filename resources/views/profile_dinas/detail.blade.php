@@ -33,6 +33,10 @@
                     <textarea class="form-control" id="detail_tujuan" name="detail_tujuan" readonly>{{ $item->tujuan }}</textarea>
                 </div>
                 <div class="form-group">
+                    <label for="detail_motto" class="col-form-label">Motto:</label>
+                    <textarea class="form-control" id="detail_motto" name="detail_motto" readonly>{{ $item->motto }}</textarea>
+                </div>
+                <div class="form-group">
                     <label for="detail_gambar_strukturorganisasi" class="col-form-label">Gambar Struktur Organisasi:</label><br>
                     <img src="{{ asset('storage/' . $item->gambar_strukturorganisasi) }}" class="mt-2" style="max-width: 200px;" alt="gambar struktur organisasi {{ $item->nama_dinas }}">
                 </div>

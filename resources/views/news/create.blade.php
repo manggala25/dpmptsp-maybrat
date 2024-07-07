@@ -15,10 +15,6 @@
                             <input type="text" class="form-control" id="judul" name="judul" placeholder="Masukkan Judul Berita">
                         </div>
                         <div class="form-group">
-                            <label for="slug" class="col-form-label">Slug:</label>
-                            <input type="text" class="form-control" id="slug" name="slug" placeholder="Contoh: judul-berita">
-                        </div>
-                        <div class="form-group">
                             <label for="isi" class="col-form-label">Isi Berita:</label>
                             <textarea class="form-control" id="isi" name="isi" placeholder="Masukkan isi berita"></textarea>
                         </div>

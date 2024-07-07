@@ -20,7 +20,7 @@
     <!-- Navigation Bar-->
     
     <!-- Start home -->
-    <section class="bg-half page-next-level" style="background-image: url(images/image-artikel-bg.jpg);"> 
+    <section class="bg-half page-next-level" style="background-image: url({{ asset('storage/images/maybrat-view.png') }});"> 
         <div class="bg-overlay"></div>
         <div class="container">
             <div class="row justify-content-center">

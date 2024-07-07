@@ -36,7 +36,7 @@
                     <div class="home-form-position">
                         <div class="row">
                             <div class="col-lg-12">
-                                {{-- <div class="home-registration-form p-4 mb-3">
+                                <div class="home-registration-form p-4 mb-3">
                                     <form class="registration-form">
                                         <div class="row">
                                             <div class="col-lg-10 col-md-12">
@@ -52,7 +52,7 @@
                                             </div>
                                         </div>
                                     </form>
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -281,7 +281,7 @@
                         </div>
                         <div class="content p-4">
                             <h4><a href="javascript:void(0)" class="title text-dark">{{ $item->judul }}</a></h4>
-                            <p class="text-muted">{{ $item->slug }}</p>
+                            <p class="text-muted">{{ Str::limit($item->isi, 50, '...') }}</p>
                             <a href="#" class="text-dark readmore">Baca Selengkapnya<i class="mdi mdi-chevron-right"></i></a>
                         </div>
                         <div class="author">

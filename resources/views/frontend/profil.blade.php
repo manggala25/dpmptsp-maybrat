@@ -33,34 +33,42 @@
         </div>
     </section>
     <!-- end home -->
-     <!-- ABOUT US START -->
-     <section class="section">
+    <!-- ABOUT US START -->
+    <section class="section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 col-md-4">
-                    <img src="images/about.jpg" class="img-fluid rounded shadow" alt="">
-                </div>
+                @php 
+                    $profile_dinas = \App\Models\ProfileDinas::where('id', 1)->first();
+                    $tugas_dinas = \App\Models\TugasDinas::where('status', 'aktif')->get();
+                    $fungsi = \App\Models\Fungsi::where('status', 'aktif')->get();
+                    $kontak = \App\Models\Contact::select('nama_informasi', 'link', 'detail', 'status')
+                                ->where('status', 'aktif')
+                                ->orderByRaw("CASE WHEN nama_informasi = 'Alamat Kantor' THEN 0 ELSE 1 END, nama_informasi")
+                                ->get();
+                @endphp
 
-                <div class="col-lg-7 col-md-8">
-                    <div class="about-desc ms-lg-4">
-                        <h4 class="text-dark"> Visi</h4>
-
-                        <p class="text-muted">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae sed in maiores voluptatum eligendi officia magni rerum dolores eveniet, fuga cumque earum ut rem. Enim earum labore error veniam sapiente!</p>
-
-                        <h4 class="text-dark"> Misi</h4>
-
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi modi ipsa aspernatur, vero atque saepe quos suscipit minima, quisquam magnam distinctio voluptas eum, aliquid alias eius aut culpa porro. At!</p>
-
-                        <h4 class="text-dark"> Moto</h4>
-
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi modi ipsa aspernatur, vero atque saepe quos suscipit minima, quisquam magnam distinctio voluptas eum, aliquid alias eius aut culpa porro. At!</p>
-
+                @if ($profile_dinas)
+                    <div class="col-lg-6 col-md-4">
+                        <img src="{{ asset('storage/images/papua.jpg') }}" class="img-fluid rounded shadow" alt="">
                     </div>
-                </div>
+                    <div class="col-lg-6 col-md-8">
+                        <div class="about-desc ms-lg-4">
+                            <h4 class="text-dark">Visi</h4>
+                            <p class="text-muted">{{ $profile_dinas->visi }}</p>
+                            <h4 class="text-dark">Misi</h4>
+                            <p class="text-muted">{{ $profile_dinas->misi }}</p>
+                            <h4 class="text-dark">Moto</h4>
+                            <p class="text-muted">"{{ $profile_dinas->motto }}"</p>
+                        </div>
+                    </div>
+                @else
+                    <p>Data tidak ditemukan.</p>
+                @endif
             </div>
         </div>
     </section>
     <!-- ABOUT US END -->
+
 
     <!-- JOB DETAILS START -->
     <section class="section">
@@ -76,19 +84,18 @@
                     <div class="job-detail border rounded p-4">
                         <div class="job-detail-content">
                             <div class="job-detail-desc">
-                                <p class="text-muted mb-2">1. Perumusan Kebijakan Teknis: Menyusun kebijakan teknis di bidang penanaman modal dan pelayanan perizinan satu pintu.</p>
-                                <p class="text-muted mb-2">2. Pemberian Izin dan Non-Izin: Mengeluarkan izin dan non-izin yang menjadi kewenangan daerah sesuai dengan peraturan perundang-undangan.</p>
-                                <p class="text-muted mb-2">3. Pengelolaan Data dan Informasi: Mengelola data dan informasi terkait penanaman modal dan pelayanan terpadu satu pintu.</p>
-                                <p class="text-muted mb-2">4. Pengawasan dan Pengendalian: Melakukan pengawasan dan pengendalian terhadap pelaksanaan penanaman modal dan pelayanan perizinan.</p>
-                                <p class="text-muted mb-2">5. Penyuluhan dan Bimbingan Teknis: Memberikan penyuluhan dan bimbingan teknis kepada masyarakat dan pelaku usaha mengenai prosedur dan persyaratan perizinan.</p>
-                                <p class="text-muted mb-2">6. Pelaporan: Menyusun dan menyampaikan laporan pelaksanaan tugas kepada bupati atau wali kota.</p>
+                                <ol class="text-muted mb-2">
+                                    @foreach ($tugas_dinas as $index => $tugas)
+                                        <li class="text-muted mb-2 ">{{ $tugas->deskripsi }}</li>
+                                    @endforeach
+                                </ol>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <h5 class="text-dark mt-4">Fungsi:</h5>
+                            <h4 class="text-dark mt-4">Fungsi:</h4>
                         </div>
                     </div>
 
@@ -96,17 +103,17 @@
                         <div class="col-lg-12">
                             <div class="job-detail border rounded mt-2 p-4">
                                 <div class="job-detail-desc">
-                                    <p class="text-muted mb-2">1. Pelayanan Perizinan Terpadu: Menyediakan layanan perizinan yang terpadu dan terintegrasi untuk memudahkan masyarakat dan pelaku usaha dalam mengurus izin.</p>
-                                    <p class="text-muted mb-2">2. Promosi dan Fasilitasi Investasi: Melakukan promosi dan fasilitasi investasi untuk menarik investasi ke daerah dan meningkatkan iklim investasi.</p>
-                                    <p class="text-muted mb-2">3. Pembinaan dan Pengawasan: Melakukan pembinaan dan pengawasan terhadap pelaksanaan penanaman modal dan pemberian izin untuk memastikan kepatuhan terhadap peraturan yang berlaku.</p>
-                                    <p class="text-muted mb-2">4. Pengembangan Sistem Informasi: Mengembangkan dan mengelola sistem informasi penanaman modal dan pelayanan terpadu satu pintu untuk meningkatkan efisiensi dan transparansi.</p>
-                                    <p class="text-muted mb-2">5. Koordinasi dengan Instansi Terkait: Melakukan koordinasi dengan instansi terkait baik di tingkat pusat maupun daerah dalam rangka penyelenggaraan pelayanan perizinan dan penanaman modal.</p>
+                                    <ol class="text-muted mb-2">
+                                    @foreach ($fungsi as $index => $fungsi)
+                                        <li class="text-muted mb-2 ">{{ $fungsi->deskripsi }}</li>
+                                    @endforeach
+                                </ol>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-lg-12">
                             <h5 class="text-dark mt-4">Qualification :</h5>
                         </div>
@@ -223,110 +230,82 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
 
                 <div class="col-lg-4 col-md-5 mt-4 mt-sm-0">
                     <div class="job-detail border rounded p-4">
-                        <h5 class="text-muted text-center pb-2"><i class="mdi mdi-map-marker me-2"></i>Lokasi</h5>
+                        <h5 class="text-muted text-center pb-2"><i class="mdi mdi-map-marker me-2"></i>Informasi Kontak</h5>
 
                         <div class="job-detail-location pt-4 border-top">
+                            @foreach ($kontak as $item )
                             <div class="job-details-desc-item">
                                 <div class="float-start me-2">
-                                    <i class="mdi mdi-bank text-muted"></i>
+                                    @if ($item->nama_informasi != 'Alamat Kantor')
+                                        <p class="text-muted mb-2">{{ $item->nama_informasi }}</p>
+                                    @endif
                                 </div>
-                                <p class="text-muted mb-2">: MPP Kabupaten Maybrat</p>
+                                <a class="text-muted mb-2 text-decoration-none" href="{{ $item->link }}"><p class="text-muted mb-2">: {{ $item->detail }}</p></a>
                             </div>
-
-                            <div class="job-details-desc-item">
-                                <div class="float-start me-2">
-                                    <i class="mdi mdi-email text-muted"></i>
-                                </div>
-                                <p class="text-muted mb-2">: maybratkab@gmail.com</p>
-                            </div>
-
-                            <div class="job-details-desc-item">
-                                <div class="float-start me-2">
-                                    <i class="mdi mdi-web text-muted"></i>
-                                </div>
-                                <p class="text-muted mb-2">: https://maybratkab.go.id/profil-maybrat/</p>
-                            </div>
-
-                            <div class="job-details-desc-item">
-                                <div class="float-start me-2">
-                                    <i class="mdi mdi-cellphone-iphone text-muted"></i>
-                                </div>
-                                <p class="text-muted mb-2">: 1234 567 89</p>
-                            </div>
-
-                            <div class="job-details-desc-item">
-                                <div class="float-start me-2">
-                                    <i class="mdi mdi-clock-outline text-muted"></i>
-                                </div>
-                                <p class="text-muted mb-2">: 4 minutes ago</p>
-                            </div>
-
-                            <h6 class="text-dark f-17 mt-3 mb-0">Link :</h6>
-                            <ul class="social-icon list-inline mt-3 mb-0">
-                                <li class="list-inline-item"><a href="#" class="rounded"><i class="mdi mdi-facebook"></i></a></li>
-                                <li class="list-inline-item"><a href="#" class="rounded"><i class="mdi mdi-instagram"></i></a></li>
-                                <li class="list-inline-item"><a href="#" class="rounded"><i class="mdi mdi-google-plus"></i></a></li>
-                                <li class="list-inline-item"><a href="#" class="rounded"><i class="mdi mdi-whatsapp"></i></a></li>
-                            </ul>
+                            @endforeach
                         </div>
                     </div>
 
                     <div class="job-detail border rounded mt-4 p-4">
-                        <h5 class="text-muted text-center pb-2"><i class="mdi mdi-clock-outline me-2"></i>Jam Operasional</h5>
+                        <h5 class="text-muted text-center pb-2">
+                            <i class="mdi mdi-clock me-2"></i>
+                            Jam Operasional
+                        </h5>
+                        <p class="text-muted text-center mb-0">Zonasi waktu WIT</p>
 
                         <div class="job-detail-time border-top pt-4">
                             <ul class="list-inline mb-0">
                                 <li class="clearfix text-muted border-bottom pb-3">
                                     <div class="float-start">Senin</div>
                                     <div class="float-end">
-                                        <h5 class="f-13 mb-0">9AM - 7PM</h5>
+                                        <h5 class="f-13 mb-0">09.00 - 17.00</h5>
                                     </div>
                                 </li>
 
                                 <li class="clearfix text-muted border-bottom pb-3">
                                     <div class="float-start">Selasa</div>
                                     <div class="float-end">
-                                        <h5 class="f-13 mb-0">9AM - 7PM</h5>
+                                        <h5 class="f-13 mb-0">09.00 - 17.00</h5>
                                     </div>
                                 </li>
 
                                 <li class="clearfix text-muted border-bottom pb-3">
                                     <div class="float-start">Rabu</div>
                                     <div class="float-end">
-                                        <h5 class="f-13 mb-0">9AM - 7PM</h5>
+                                        <h5 class="f-13 mb-0">09.00 - 17.00</h5>
                                     </div>
                                 </li>
 
                                 <li class="clearfix text-muted border-bottom pb-3">
                                     <div class="float-start">Kamis</div>
                                     <div class="float-end">
-                                        <h5 class="f-13 mb-0">9AM - 7PM</h5>
+                                        <h5 class="f-13 mb-0">09.00 - 17.00</h5>
                                     </div>
                                 </li>
 
                                 <li class="clearfix text-muted border-bottom pb-3">
                                     <div class="float-start">Jum'at</div>
                                     <div class="float-end">
-                                        <h5 class="f-13 mb-0">9AM - 7PM</h5>
+                                        <h5 class="f-13 mb-0">09.00 - 17.00</h5>
                                     </div>
                                 </li>
 
                                 <li class="clearfix text-muted border-bottom pb-3">
                                     <div class="float-start">Sabtu</div>
                                     <div class="float-end">
-                                        <h5 class="f-13 mb-0">6:30AM - 1PM</h5>
+                                        <h5 class="f-13 mb-0">09.00 - 13.00</h5>
                                     </div>
                                 </li>
 
                                 <li class="clearfix text-muted pb-0">
                                     <div class="float-start">Minggu</div>
                                     <div class="float-end">
-                                        <h5 class="f-13 mb-0">Closed</h5>
+                                        <h5 class="f-13 mb-0 text-danger">Libur</h5>
                                     </div>
                                 </li>
                             </ul>

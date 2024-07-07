@@ -1,4 +1,5 @@
 <?php
+// app/Http/Controllers/NewsController.php
 
 namespace App\Http\Controllers;
 
@@ -27,7 +28,6 @@ class NewsController extends Controller
         // Validasi data input
         $validate = Validator::make($request->all(), [
             'judul' => 'required|max:255',
-            'slug' => 'required|unique:news,slug',
             'isi' => 'required',
             'gambar_berita' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'penulis' => 'required|max:255',
@@ -36,7 +36,6 @@ class NewsController extends Controller
             'status' => 'required|in:draft,published,archived',
         ], [
             'judul.required' => 'Judul berita tidak boleh kosong.',
-            'slug.unique' => 'Slug sudah digunakan, silakan gunakan yang lain.',
             'gambar_berita.required' => 'Gambar berita tidak boleh kosong.',
             'gambar_berita.image' => 'File harus berupa gambar.',
             'gambar_berita.mimes' => 'Format gambar yang diterima: jpeg, png, jpg, gif, svg.',
@@ -45,43 +44,24 @@ class NewsController extends Controller
             'kategori.required' => 'Kategori berita tidak boleh kosong.',
             'tanggal_publikasi.required' => 'Tanggal publikasi berita tidak boleh kosong.',
             'status.in' => 'Status berita tidak boleh kosong.',
-
         ]);
-
-        if ($request->hasFile('gambar_berita')) {
-            $validate = Validator::make(
-                $request->all(),
-                [
-                    'gambar_berita' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                ],
-                [
-                    'gambar_berita.required' => 'Gambar berita tidak boleh kosong.',
-                    'gambar_berita.image' => 'File harus berupa gambar.',
-                    'gambar_berita.mimes' => 'Format gambar yang diterima: jpeg, png, jpg, gif, svg.',
-                    'gambar_berita.max' => 'Ukuran gambar maksimal 2MB.',
-                ]
-            );
-        }
 
         if ($validate->fails()) {
             Alert::error('Error', $validate->errors()->first());
             return redirect()->back()->withErrors($validate)->withInput();
         }
 
-        $imagePath = $request->file('gambar_berita')->store('public/ news');
+        $imagePath = $request->file('gambar_berita')->store('public/news');
         $imagePath = str_replace('public/', '', $imagePath);
-
-        $status = $request->input('status');
 
         $store = News::create([
             'judul' => $request->input('judul'),
-            'slug' => $request->input('slug'),
             'isi' => $request->input('isi'),
             'gambar_berita' => $imagePath,
             'penulis' => $request->input('penulis'),
             'kategori' => $request->input('kategori'),
             'tanggal_publikasi' => $request->input('tanggal_publikasi'),
-            'status' => $status,
+            'status' => $request->input('status'),
         ]);
 
         if ($store) {
@@ -92,6 +72,7 @@ class NewsController extends Controller
             return redirect()->back();
         }
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -104,7 +85,6 @@ class NewsController extends Controller
         // Validasi data yang diterima dari formulir
         $request->validate([
             'edit_judul' => 'required|string',
-            'edit_slug' => 'required|string',
             'edit_isi' => 'required|string',
             'edit_gambar_berita' => 'image|max:2048', // Contoh validasi untuk gambar, maksimal 2MB
             'edit_penulis' => 'required|string',
@@ -118,7 +98,6 @@ class NewsController extends Controller
 
         // Update data berita
         $news->judul = $request->edit_judul;
-        $news->slug = $request->edit_slug;
         $news->isi = $request->edit_isi;
         $news->penulis = $request->edit_penulis;
         $news->kategori = $request->edit_kategori;
@@ -143,6 +122,14 @@ class NewsController extends Controller
         // Redirect atau kembalikan response sesuai kebutuhan aplikasi
         return redirect()->back()->with('success', 'Data berita berhasil diperbarui.');
     }
+
+    public function show($slug)
+    {
+        $news = News::where('slug', $slug)->firstOrFail();
+
+        return view('frontend.detail-artikel', ['news' => $news]);
+    }
+
 
     /**
      * Remove the specified resource from storage.
