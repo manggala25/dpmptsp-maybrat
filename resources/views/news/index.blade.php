@@ -87,14 +87,13 @@
   @include('news.delete')
   @include('news.edit')
 
-
-
   @include('layouts.setting-theme')
   @include('layouts.script')
-</body>
-<script>
+
+  <script>
      $(document).ready(function() {
         $('#example').DataTable();
     });
 </script>
+</body>
 </html>
