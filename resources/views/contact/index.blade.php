@@ -24,7 +24,6 @@
                                         <tr>
                                             {{-- <th></th> --}}
                                             <th class="text-uppercase text-primary text-sm font-weight-bold">Nama Informasi</th>
-                                            <th class="text-uppercase text-primary text-sm font-weight-bold">Link</th>
                                             <th class="text-uppercase text-primary text-sm font-weight-bold">Detail</th>
                                             <th class="text-uppercase text-primary text-sm font-weight-bold">Icon</th>
                                             <th class="text-center text-uppercase text-primary text-sm font-weight-bold">Status</th>
@@ -38,9 +37,6 @@
                                                 <div class="d-flex align-items-center">
                                                     <h6 class="mb-0 text-sm">{{ $item->nama_informasi }}</h6>
                                                 </div>
-                                            </td>
-                                            <td>
-                                                <a href="{{ $item->link }}" class="text-xs font-weight-bold fot" target="_blank">{{ $item->link }}</a>
                                             </td>
                                             <td>
                                                 <a href="{{ $item->detail }}" class="text-xs font-weight-bold fot" target="_blank">{{ $item->detail }}</a>

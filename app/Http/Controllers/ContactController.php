@@ -109,7 +109,11 @@ class ContactController extends Controller
         }
 
         $contact->save();
-        return redirect()->back()->with('success', 'Data contact berhasil diperbarui.');
+        if ($contact) {
+            return redirect()->back()->with('success', 'Data contact berhasil diperbarui.');
+        } else {
+            return redirect()->back()->with('error', 'Data contact gagal diperbarui.');
+        }
     }
 
     /**
