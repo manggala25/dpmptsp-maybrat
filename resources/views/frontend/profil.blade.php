@@ -62,7 +62,7 @@
                         </div>
                     </div>
                 @else
-                    <p>Data tidak ditemukan.</p>
+                    <p>Mohon Maaf Data Tidak Ditemukan.</p>
                 @endif
             </div>
         </div>
