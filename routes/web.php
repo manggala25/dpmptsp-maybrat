@@ -12,6 +12,7 @@ use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\TugasDinasController;
 use App\Http\Controllers\FungsiController;
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\PublikasiController;
 
 
 //route frontend
@@ -90,6 +91,11 @@ Route::middleware('auth')->group(function () {
     Route::resource('layanan', LayananController::class)->except(['destroy']);
     Route::delete('/layanan/{id}', [LayananController::class, 'destroy'])->name('layanan.destroy');
     Route::put('/layanan/{layanan}', [LayananController::class, 'update'])->name('layanan.update');
+
+    // Publikasi Routes
+    Route::resource('publikasi', PublikasiController::class)->except(['destroy']);
+    Route::delete('/publikasi/{id}', [PublikasiController::class, 'destroy'])->name('publikasi.destroy');
+    Route::put('/publikasi/{publikasi}', [PublikasiController::class, 'update'])->name('publikasi.update');
 });
 
 require __DIR__ . '/auth.php';

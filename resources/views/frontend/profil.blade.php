@@ -112,125 +112,6 @@
                             </div>
                         </div>
                     </div>
-
-                    {{-- <div class="row">
-                        <div class="col-lg-12">
-                            <h5 class="text-dark mt-4">Qualification :</h5>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="job-detail border rounded mt-2 p-4">
-                                <div class="job-detail-desc">
-                                    <div class="job-details-desc-item">
-                                        <div class="float-start me-3">
-                                            <i class="mdi mdi-send text-primary"></i>
-                                        </div>
-                                        <p class="text-muted mb-2">Morbi mattis ullamcorper velit. Phasellus gravida semper nisi nullam vel sem.</p>
-                                    </div>
-
-                                    <div class="job-details-desc-item">
-                                        <div class="float-start me-3">
-                                            <i class="mdi mdi-send text-primary"></i>
-                                        </div>
-                                        <p class="text-muted mb-2">Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
-                                    </div>
-
-                                    <div class="job-details-desc-item">
-                                        <div class="float-start me-3">
-                                            <i class="mdi mdi-send text-primary"></i>
-                                        </div>
-                                        <p class="text-muted mb-2">Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.</p>
-                                    </div>
-
-                                    <div class="job-details-desc-item">
-                                        <div class="float-start me-3">
-                                            <i class="mdi mdi-send text-primary"></i>
-                                        </div>
-                                        <p class="text-muted mb-2">Donec mollis hendrerit risus. Phasellus nec sem in justo pellentesque facilisis.</p>
-                                    </div>
-
-                                    <div class="job-details-desc-item">
-                                        <div class="float-start me-3">
-                                            <i class="mdi mdi-send text-primary"></i>
-                                        </div>
-                                        <p class="text-muted mb-2">Praesent congue erat at massa. Sed cursus turpis vitae tortor. Donec posuere vulputate arcu.</p>
-                                    </div>
-
-                                    <div class="job-details-desc-item">
-                                        <div class="float-start me-3">
-                                            <i class="mdi mdi-send text-primary"></i>
-                                        </div>
-                                        <p class="text-muted mb-2">Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Nullam sagittis.</p>
-                                    </div>
-
-                                    <div class="job-details-desc-item">
-                                        <div class="float-start me-3">
-                                            <i class="mdi mdi-send text-primary"></i>
-                                        </div>
-                                        <p class="text-muted mb-2">Pellentesque auctor neque nec urna. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi.</p>
-                                    </div>
-
-                                    <div class="job-details-desc-item">
-                                        <div class="float-start me-3">
-                                            <i class="mdi mdi-send text-primary"></i>
-                                        </div>
-                                        <p class="text-muted mb-0">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h5 class="text-dark mt-4">Primary Responsibilities :</h5>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="job-detail border rounded mt-2 p-4">
-                                <div class="job-detail-desc">
-                                    <div class="job-details-desc-item">
-                                        <div class="float-start me-3">
-                                            <i class="mdi mdi-send text-primary"></i>
-                                        </div>
-                                        <p class="text-muted mb-2">HTML, CSS & Scss</p>
-                                    </div>
-
-                                    <div class="job-details-desc-item">
-                                        <div class="float-start me-3">
-                                            <i class="mdi mdi-send text-primary"></i>
-                                        </div>
-                                        <p class="text-muted mb-2">Javascript</p>
-                                    </div>
-
-                                    <div class="job-details-desc-item">
-                                        <div class="float-start me-3">
-                                            <i class="mdi mdi-send text-primary"></i>
-                                        </div>
-                                        <p class="text-muted mb-2">PHP</p>
-                                    </div>
-
-                                    <div class="job-details-desc-item">
-                                        <div class="float-start me-3">
-                                            <i class="mdi mdi-send text-primary"></i>
-                                        </div>
-                                        <p class="text-muted mb-2">Photoshop</p>
-                                    </div>
-
-                                    <div class="job-details-desc-item">
-                                        <div class="float-start me-3">
-                                            <i class="mdi mdi-send text-primary"></i>
-                                        </div>
-                                        <p class="text-muted mb-0">Illustrator</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
 
                 <div class="col-lg-4 col-md-5 mt-4 mt-sm-0">
@@ -316,6 +197,84 @@
         </div>
     </section>
     <!-- JOB DETAILS END -->
+
+    @php
+        $publikasi = \App\Models\Publikasi::where('status', 'aktif')->get();
+    @endphp
+<!-- COMPANY TESTIMONIAL START -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <h3 class="text-dark fw-bold">Publikasi</h3>
+                <div id="testimonial-carousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach($publikasi as $key => $item)
+                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                <h6 class="text-muted f-14">{{ $item->nama_publikasi }}</h6>
+                                <p class="text-muted f-14 mb-1" style="text-align: justify; text-justify: inter-word">{{ $item->deskripsi }}</p>
+                            </div>
+                        @endforeach
+                    </div>
+                    <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div id="image-carousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach($publikasi as $key => $item)
+                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                <div class="blog-post-testi-img">
+                                    <img src="{{ asset('storage/' . $item->gambar) }}" alt="" class="img-fluid mx-auto d-block rounded">
+                                    <div class="blog-post-overlay">
+                                        <div class="blog-post-testi-icon text-center">
+                                            <i class="mdi mdi-plus-circle-outline text-white h4"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    <a class="carousel-control-prev" href="#image-carousel" role="button" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#image-carousel" role="button" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- COMPANY TESTIMONIAL END -->
+
+
+<script>
+    // Synchronize the two carousels
+    var testimonialCarousel = document.querySelector('#testimonial-carousel');
+    var imageCarousel = document.querySelector('#image-carousel');
+
+    testimonialCarousel.addEventListener('slide.bs.carousel', function (event) {
+        var imageCarouselInstance = bootstrap.Carousel.getInstance(imageCarousel);
+        imageCarouselInstance.to(event.to);
+    });
+
+    imageCarousel.addEventListener('slide.bs.carousel', function (event) {
+        var testimonialCarouselInstance = bootstrap.Carousel.getInstance(testimonialCarousel);
+        testimonialCarouselInstance.to(event.to);
+    });
+    
+</script>
+
     
     {{-- Testimoni & Instansi --}}
     <x-testimoni-instansi></x-testimoni-instansi>

@@ -39,16 +39,20 @@
     <!-- MAP START -->
     <section class="section pt-10 bg-light">        
         <div class="container mt-50 mt-60">
-            <div class="row align-items-start g-4 justify-between">
+            <div class="row align-items-start g-5 justify-between">
                 @php
                     $contact = \App\Models\Contact::select('nama_informasi', 'link', 'icon', 'detail', 'status')
                                 ->where('status', 'aktif')
-                                ->orderByRaw("CASE WHEN nama_informasi = 'Alamat Kantor' THEN 0 ELSE 1 END, nama_informasi")
+                                ->orderByRaw("CASE WHEN nama_informasi = 'Alamat Kantor' THEN 1 ELSE 0 END, nama_informasi")
                                 ->get();
                 @endphp
                 @foreach ($contact as $item)
                     @if ($item->nama_informasi !== 'Gmaps Embed')
+                    @if ($item->nama_informasi === 'Alamat Kantor')
+                        <div class="col-lg-5">
+                    @else
                         <div class="col-lg-4">
+                    @endif
                             <div class="contact-item mt-40">
                                 <div class="float-start">
                                     <div class="contact-icon d-inline-block border rounded-pill shadow text-dark me-3">
