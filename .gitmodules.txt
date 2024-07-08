@@ -1,3 +1,0 @@
-[submodule "public/template/frontend-dpmptsp"]
-    path = public/template/frontend-dpmptsp
-    url = https://github.com/manggala25/dpmptsp-maybrat.git
