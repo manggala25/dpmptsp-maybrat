@@ -50,7 +50,7 @@
                                 </li>
 
                                 <li class="list-inline-item me-4">
-                                    <p class="text-muted mb-0"><i class="mdi mdi-message-reply-text me-1"></i>4 Comment</p>
+                                    <p class="text-muted mb-0"><i class="mdi mdi-pencil me-1"></i>{{ $news->penulis }}</p>
                                 </li>
 
                                 <li class="list-inline-item">
@@ -62,21 +62,16 @@
                             <h4 class="mb-3"><a href="#" class="text-dark fw-bold">{{ $news->judul }}</a></h4>
 
                             <p class="text-muted mb-3 f-13" style="text-align: justify; text-justify: inter-word;">{!! nl2br(e($news->isi)) !!}</p>
-
-                            {{-- Like button --}}
-                            <ul class="list-inline mb-0">
+                            {{-- <ul class="list-inline mb-0">
                                 <li class="list-inline-item mt-1">
                                     <a href="" class="text-dark">
                                         <p class="mb-0 f-17"><i class="mdi mdi-heart-outline me-1 text-danger"></i>Like</p>
                                     </a>
                                 </li>
-                            </ul>
+                            </ul> --}}
                         </div>
-                        {{-- Comments section --}}
-                        <div class="rounded border mt-4 p-4">
+                        {{-- <div class="rounded border mt-4 p-4">
                             <h5 class="text-dark"><i class="mdi mdi-comment-multiple me-2"></i>4 Comments</h5>
-
-                            {{-- Example comments (you can replace this with dynamic comments from database) --}}
                             <div class="media mt-4 pt-2">
                                 <div class="blog-comment-img">
                                     <img class="d-block mx-auto rounded-pill" height="60" alt="" src="{{ asset('images/testi/img-6.jpg') }}">
@@ -88,9 +83,6 @@
                                     <p class="mb-0"><a href="" class="text-muted"><i class="mdi mdi-reply-all me-2"></i>Reply</a></p>
                                 </div>
                             </div>
-                            
-
-                            {{-- Leave a comment form --}}
                             <div class="media mt-4">
                                 <div class="blog-comment-img">
                                     <img class="d-block mx-auto rounded-pill" height="60" alt="" src="{{ asset('images/testi/img-7.jpg') }}">
@@ -139,7 +131,7 @@
                                 </div>
                             </form>
                             <!-- /form -->
-                        </div>
+                        </div> --}}
                     </div>
                         @else
                         <p>Artikel Tidak Ditemukan.</p>
