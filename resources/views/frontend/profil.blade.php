@@ -16,7 +16,7 @@
     <!-- Loader -->
 
     <!-- Navigation Bar-->
-    <x-navbar></x-navbar>
+    <x-navbar :$contact/>
     <!-- Navigation Bar-->
     
     <!-- Start home -->
@@ -33,20 +33,11 @@
         </div>
     </section>
     <!-- end home -->
+
     <!-- ABOUT US START -->
     <section class="section">
         <div class="container">
             <div class="row">
-                @php 
-                    $profile_dinas = \App\Models\ProfileDinas::where('id', 1)->first();
-                    $tugas_dinas = \App\Models\TugasDinas::where('status', 'aktif')->get();
-                    $fungsi = \App\Models\Fungsi::where('status', 'aktif')->get();
-                    $kontak = \App\Models\Contact::select('nama_informasi', 'link', 'detail', 'status')
-                                ->where('status', 'aktif')
-                                ->orderByRaw("CASE WHEN nama_informasi = 'Alamat Kantor' THEN 0 ELSE 1 END, nama_informasi")
-                                ->get();
-                @endphp
-
                 @if ($profile_dinas)
                     <div class="col-lg-6 col-md-4">
                         <img src="{{ asset('storage/images/papua.jpg') }}" class="img-fluid rounded shadow" alt="">
@@ -68,6 +59,7 @@
         </div>
     </section>
     <!-- ABOUT US END -->
+
 
 
     <!-- JOB DETAILS START -->
@@ -117,17 +109,18 @@
                 <div class="col-lg-4 col-md-5 mt-4 mt-sm-0">
                     <div class="job-detail border rounded p-4">
                         <h5 class="text-muted text-center pb-2"><i class="mdi mdi-map-marker me-2"></i>Informasi Kontak</h5>
-
                         <div class="job-detail-location pt-4 border-top">
-                            @foreach ($kontak as $item )
-                            <div class="job-details-desc-item">
-                                <div class="float-start me-2">
-                                    @if ($item->nama_informasi != 'Alamat Kantor')
-                                        <p class="text-muted mb-2">{{ $item->nama_informasi }}</p>
-                                    @endif
-                                </div>
-                                <a class="text-muted mb-2 text-decoration-none" href="{{ $item->link }}"><p class="text-muted mb-2">: {{ $item->detail }}</p></a>
-                            </div>
+                            @foreach ($kontak as $item)
+                                @if ($item->nama_informasi !== 'Gmaps Embed')
+                                    <div class="job-details-desc-item">
+                                        <div class="float-start me-2">
+                                            <p class="text-muted mb-2">{{ $item->nama_informasi }}</p>
+                                        </div>
+                                        <a class="text-muted mb-2 text-decoration-none" href="{{ $item->link }}">
+                                            <p class="text-muted mb-2">: {{ $item->detail }}</p>
+                                        </a>
+                                    </div>
+                                @endif
                             @endforeach
                         </div>
                     </div>
@@ -198,89 +191,70 @@
     </section>
     <!-- JOB DETAILS END -->
 
-    @php
-        $publikasi = \App\Models\Publikasi::where('status', 'aktif')->get();
-    @endphp
-<!-- COMPANY TESTIMONIAL START -->
-<section class="section bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-5">
-                <h3 class="text-dark fw-bold">Publikasi</h3>
-                <div id="testimonial-carousel" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        @foreach($publikasi as $key => $item)
-                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                <h6 class="text-muted f-14">{{ $item->nama_publikasi }}</h6>
-                                <p class="text-muted f-14 mb-1" style="text-align: justify; text-justify: inter-word">{{ $item->deskripsi }}</p>
-                            </div>
-                        @endforeach
+    <!-- COMPANY TESTIMONIAL START -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <h3 class="text-dark fw-bold">Publikasi</h3>
+                    <div id="testimonial-carousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            @foreach($publikasi as $key => $item)
+                                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                    <h6 class="text-muted f-14">{{ $item->nama_publikasi }}</h6>
+                                    <p class="text-muted f-14 mb-1" style="text-align: justify; text-justify: inter-word">{{ $item->deskripsi }}</p>
+                                </div>
+                            @endforeach
+                        </div>
+                        <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </a>
                     </div>
-                    <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </a>
                 </div>
-            </div>
-            <div class="col-lg-7">
-                <div id="image-carousel" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        @foreach($publikasi as $key => $item)
-                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                <div class="blog-post-testi-img">
-                                    <img src="{{ asset('storage/' . $item->gambar) }}" alt="" class="img-fluid mx-auto d-block rounded">
-                                    <div class="blog-post-overlay">
-                                        <div class="blog-post-testi-icon text-center">
-                                            <i class="mdi mdi-plus-circle-outline text-white h4"></i>
+                <div class="col-lg-7">
+                    <div id="image-carousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            @foreach($publikasi as $key => $item)
+                                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                    <div class="blog-post-testi-img">
+                                        <img src="{{ asset('storage/' . $item->gambar) }}" alt="" class="img-fluid mx-auto d-block rounded">
+                                        <div class="blog-post-overlay">
+                                            <div class="blog-post-testi-icon text-center">
+                                                <i class="mdi mdi-plus-circle-outline text-white h4"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
+                        <a class="carousel-control-prev" href="#image-carousel" role="button" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#image-carousel" role="button" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </a>
                     </div>
-                    <a class="carousel-control-prev" href="#image-carousel" role="button" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#image-carousel" role="button" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </a>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- COMPANY TESTIMONIAL END -->
-
-
-<script>
-    // Synchronize the two carousels
-    var testimonialCarousel = document.querySelector('#testimonial-carousel');
-    var imageCarousel = document.querySelector('#image-carousel');
-
-    testimonialCarousel.addEventListener('slide.bs.carousel', function (event) {
-        var imageCarouselInstance = bootstrap.Carousel.getInstance(imageCarousel);
-        imageCarouselInstance.to(event.to);
-    });
-
-    imageCarousel.addEventListener('slide.bs.carousel', function (event) {
-        var testimonialCarouselInstance = bootstrap.Carousel.getInstance(testimonialCarousel);
-        testimonialCarouselInstance.to(event.to);
-    });
-    
-</script>
+    </section>
+    <!-- COMPANY TESTIMONIAL END -->
 
     
     {{-- Testimoni & Instansi --}}
-    <x-testimoni-instansi></x-testimoni-instansi>
+    <x-testimoni-instansi :testimoni="$testimoni" :partners="$partners" />
     {{-- Testimoni & Instansi --}}
 
-    <x-footer></x-footer>
+    {{-- Footer --}}
+    <x-footer :$contact />
+    {{-- Footer --}}
 
     <x-script></x-script>
 

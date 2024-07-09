@@ -16,7 +16,7 @@
     <!-- Loader -->
 
     <!-- Navigation Bar-->
-    <x-navbar></x-navbar>
+    <x-navbar :$contact/>
     <!-- Navigation Bar-->
 
     <!-- Start home -->
@@ -38,14 +38,6 @@
     <section class="section">
         <div class="container">
             <div class="row">
-                <div class="row">
-
-                @php
-                    $news = \App\Models\News::where('status', 'published')
-                                    ->orderBy('tanggal_publikasi', 'desc')
-                                    ->get();
-                @endphp
-
                 @foreach ($news as $item)
                     <div class="col-lg-4 col-md-6 mt-4 pt-2">
                         <div class="blog position-relative overflow-hidden shadow rounded">
@@ -73,34 +65,20 @@
                         </div>
                     </div><!--end col-->
                 @endforeach
-            </div>
 
                 <div class="col-lg-12">
                     <nav aria-label="Page navigation example">
-                        <ul class="pagination job-pagination justify-content-center mb-0">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
-                                    <i class="mdi mdi-chevron-double-left f-15"></i>
-                                </a>
-                            </li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">
-                                    <i class="mdi mdi-chevron-double-right f-15"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>  
+                        {{ $news->links() }} <!-- Pagination links -->
+                    </nav>
                 </div>
             </div>
         </div>
     </section>
     <!-- blog end -->
 
-    <x-footer></x-footer>
+    {{-- Footer --}}
+    <x-footer :$contact />
+    {{-- Footer --}}
 
     <x-script></x-script>
 

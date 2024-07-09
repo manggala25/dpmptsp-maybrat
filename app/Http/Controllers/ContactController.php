@@ -16,6 +16,15 @@ class ContactController extends Controller
         return view('contact.index', compact('contact'));
     }
 
+    public function showContact()
+    {
+        $contact = Contact::select('nama_informasi', 'link', 'detail')
+            ->where('status', 'aktif')
+            ->get();
+
+        return view('contact.detail', compact('contact'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -99,7 +108,7 @@ class ContactController extends Controller
         $contact->status = $request->edit_status;
 
         if ($request->hasFile('edit_icon')) {
-            
+
             if ($contact->icon && file_exists(storage_path('app/public/' . $contact->icon))) {
                 unlink(storage_path('app/public/' . $contact->icon));
             }

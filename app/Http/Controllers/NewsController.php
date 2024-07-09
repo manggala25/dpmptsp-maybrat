@@ -123,14 +123,6 @@ class NewsController extends Controller
         return redirect()->back()->with('success', 'Data berita berhasil diperbarui.');
     }
 
-    public function show($slug)
-    {
-        $news = News::where('slug', $slug)->firstOrFail();
-
-        return view('frontend.detail-artikel', ['news' => $news]);
-    }
-
-
     /**
      * Remove the specified resource from storage.
      *

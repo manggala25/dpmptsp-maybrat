@@ -15,7 +15,7 @@
     </div>
     <!-- Loader -->
 
-    <x-navbar></x-navbar>
+    <x-navbar :$contact />
 
     <!-- Start home -->
     @if($news)
@@ -152,7 +152,9 @@
     <!-- BLOG LIST END -->
 
 
-    <x-footer></x-footer>
+    {{-- Footer --}}
+    <x-footer :$contact />
+    {{-- Footer --}}
 
     <x-script></x-script>
 

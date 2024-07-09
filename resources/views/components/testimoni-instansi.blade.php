@@ -12,10 +12,6 @@
             <div class="row pt-4">
                 <div class="col-lg-12">
                     <div id="owl-testi" class="owl-carousel owl-theme">
-                        @php
-                            $testimoni = \App\Models\Testimoni::where('status', 'aktif')->get();
-                        @endphp
-
                         @foreach($testimoni as $item)
                         <div class="item testi-box rounded p-4 me-3 ms-2 mb-4 bg-light position-relative">
                             <p class="text-muted mb-5">{!! $item->ucapan !!}</p>
@@ -47,11 +43,6 @@
             </div>
 
             <div class="row d-flex justify-content-center align-items-center">
-                @php
-                    $partners = \App\Models\Partners::select('nama_partner','logo','link', 'status')
-                    ->where('status', 'aktif')
-                    ->get();
-                @endphp
                 @foreach ($partners as $item)
                     <div class="col-lg-3 col-md-4 col-6 mt-4 pt-2 text-center">
                         <a href="{{ $item->link }}" class="d-block">

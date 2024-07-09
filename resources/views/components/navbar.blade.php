@@ -1,15 +1,10 @@
-<!-- Navigation Bar-->
+    <!-- Navigation Bar-->
     <header id="topnav" class="defaultscroll scroll-active">
 
         <!-- Tagline Start -->
         <div class="tagline">
             <div class="container">
                 <div class="float-start">
-                    @php
-                        $contact = \App\Models\Contact::select('nama_informasi', 'link', 'detail', 'status')
-                          ->where('status', 'aktif')
-                          ->get();
-                    @endphp
                     @foreach($contact as $item)
                         @if ($item->nama_informasi == 'Whatsapp')
                             <div class="phone">
@@ -59,9 +54,11 @@
             <div id="navigation">
             <!-- Navigation Menu-->   
                 <ul class="navigation-menu">
-                    <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="{{ url('/') }}">Beranda</a></li>
-                    <li class="">
-                        <a href="/profil">Profil</a>
+                    <li class="{{ Request::is('') ? 'active' : '' }}">
+                        <a href="{{ url('/') }}">Beranda</a>
+                    </li>
+                    <li class="{{ Request::is('profil') ? 'active' : '' }}">
+                        <a href="{{ url('/profil') }}">Profil</a>
                     </li>
                     <li class="has-submenu {{ Request::is('layanan*') ? 'active' : '' }}">
                         <a href="javascript:void(0)">Layanan</a><span class="menu-arrow"></span>
@@ -85,7 +82,9 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="{{ Request::is('artikel') ? 'active' : '' }}"><a href="{{ url('/artikel') }}">Artikel</a></li>
+                    <li class="{{ Request::is('artikel') ? 'active' : '' }}">
+                        <a href="{{ url('/artikel') }}">Artikel</a>
+                    </li>
                     <li class="{{ Request::is('kontak') ? 'active' : '' }}">
                         <a href="{{ url('/kontak') }}">Kontak</a>
                     </li>

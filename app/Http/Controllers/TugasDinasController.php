@@ -16,6 +16,12 @@ class TugasDinasController extends Controller
         return view('tugas_dinas.index', compact('tugas_dinas'));
     }
 
+    public function show($aktif)
+    {
+        $tugas_dinas = TugasDinas::where('status', $aktif)->get();
+        return view('tugas_dinas.show', compact('tugas_dinas'));
+    }
+
     public function store(Request $request)
     {
         // dd($request->all());

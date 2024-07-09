@@ -16,7 +16,7 @@
     <!-- Loader -->
 
     <!-- Navigation Bar-->
-    <x-navbar></x-navbar>
+    <x-navbar :$contact/>
     <!-- Navigation Bar-->
 
     <!-- Start Home -->
@@ -69,29 +69,24 @@
                 <div class="col-lg-6 col-md-5">
                     <img src="{{ asset('storage/images/papua.jpg') }}" class="img-fluid rounded shadow" alt="">
                 </div>
-                @php
-                    $profile_dinas = \App\Models\ProfileDinas::where('id', 1)->first();
-                @endphp
                 <div class="col-lg-6 col-md-7">
-                    <div class="about-desc ms-lg-4 ">
+                    <div class="about-desc ms-lg-4">
                         <h3 class="text-dark fw-bold"> Profil {{ $profile_dinas->nama_dinas }}</h3>
-                        <p class="text-muted text-justify ">
-                            @php
-                                $short_description = substr($profile_dinas->deskripsi, 0, 600);
-                            @endphp
+                        <p class="text-muted text-justify">
                             {{ $short_description }}
                             @if (strlen($profile_dinas->deskripsi) > 600)
                                 <span id="dots">...</span>
                                 <span id="more" style="display: none;">{{ substr($profile_dinas->deskripsi, 600) }}</span>
                             @endif
                         </p>
-                        <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+                        <a href="{{ route('profil') }}" id="readMoreBtn" class="btn btn-primary">Baca Selengkapnya</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- ABOUT US END -->
+
     
     <!-- JOB DETAILS START -->
     <section class="section bg-light">
@@ -102,14 +97,11 @@
                     <div class="col-lg-5">
                         <h4 class="text-dark mt-4 fw-bold">Tugas-tugas DPMPTSP</h4>
                     </div>
-                    @php
-                        $tugasList = \App\Models\TugasDinas::where('status', 'aktif')->get();
-                    @endphp
                     <div class="col-12">
                         <div class="job-detail border rounded mt-2 p-4">
                             <div class="job-detail-desc">
                                 <ol class="text-muted mb-2">
-                                    @foreach ($tugasList as $index => $tugas)
+                                    @foreach ($tugas_dinas as $item => $tugas)
                                         <li class="text-muted mb-2 ">{{ $tugas->deskripsi }}</li>
                                     @endforeach
                                 </ol>
@@ -123,14 +115,11 @@
                     <div class="col-lg-5">
                         <h4 class="text-dark mt-4 fw-bold">Fungsi dari DPMPTSP</h4>
                     </div>
-                    @php
-                        $fungsiList = \App\Models\Fungsi::where('status', 'aktif')->get();
-                    @endphp
                     <div class="col-12">
                         <div class="job-detail border rounded mt-2 p-4">
                             <div class="job-detail-desc">
                                 <ol class="text-muted mb-2">
-                                    @foreach ($fungsiList as $index => $fungsi)
+                                    @foreach ($fungsi as $item => $fungsi)
                                         <li class="text-muted mb-2 ">{{ $fungsi->deskripsi }}</li>
                                     @endforeach
                                 </ol>
@@ -145,18 +134,15 @@
     <!-- JOB DETAILS END -->
 
     <!-- SERVICE START -->
-    <div class="section-title text-center my-4 py-2">
-        <h4 class="title title-line pb-5 fw-bold">Layanan</h4>
-        <p class="text-muted para-desc mx-auto mb-1">Kami berkomitmen untuk memberikan layanan terbaik yang tidak hanya memenuhi, tetapi juga melampaui harapan Anda. Dengan pengalaman dan dedikasi kami, kami menawarkan solusi yang inovatif dan tepat waktu untuk setiap kebutuhan Anda.</p>
-    </div>
     <section class="section">
         <div class="container">
             <div class="row">
-                @php
-                    $layanan = \App\Models\Layanan::where('status', 'aktif')->get();
-                @endphp
+                <div class="section-title text-center pb-5">
+                    <h4 class="title title-line pb-5 fw-bold">Layanan</h4>
+                    <p class="text-muted para-desc mx-auto mb-1">Kami berkomitmen untuk memberikan layanan terbaik yang tidak hanya memenuhi, tetapi juga melampaui harapan Anda. Dengan pengalaman dan dedikasi kami, kami menawarkan solusi yang inovatif dan tepat waktu untuk setiap kebutuhan Anda.</p>
+                </div>
                 @foreach ($layanan as $item) 
-                <div class="col-lg-4 col-md-6 mb-4 pb-2">
+                <div class="col-lg-4 col-md-6 mb-4 pt-5">
                     <div class="services-box">
                         <div class="service-icon mb-3">
                             {!! $item->icon !!}
@@ -168,12 +154,10 @@
                     </div>
                 </div>
                 @endforeach
-
             </div>
         </div>
     </section>
     <!-- SERVICE END -->
-
 
     <!-- all jobs start -->
     <section class="section bg-light">
@@ -191,9 +175,6 @@
                     <div class="tab-content mt-2" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="portal" role="tabpanel" aria-labelledby="tab">
                             <div class="row">
-                                @php
-                                    $portal = \App\Models\Portal::where('status', 'aktif')->get();
-                                @endphp
                                 @foreach ($portal as $item)
                                 <div class="col-md-6">
                                     <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
@@ -238,11 +219,6 @@
         <!-- end containar -->
     </section>
     <!-- all jobs end -->
-
-    {{-- Testimoni & Instansi --}}
-    <x-testimoni-instansi></x-testimoni-instansi>
-    {{-- Testimoni & Instansi --}}
-
 
     <!-- blog start -->
     <section class="section bg-light">
@@ -298,7 +274,13 @@
     </section>
     <!-- blog end -->
 
-    <x-footer></x-footer>
+    {{-- Testimoni & Instansi --}}
+    <x-testimoni-instansi :testimoni="$testimoni" :partners="$partners" />
+    {{-- Testimoni & Instansi --}}
+
+    {{-- Footer --}}
+    <x-footer :$contact />
+    {{-- Footer --}}
 
     <x-script></x-script>
 

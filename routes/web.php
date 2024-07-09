@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PortalController;
@@ -13,26 +14,25 @@ use App\Http\Controllers\TugasDinasController;
 use App\Http\Controllers\FungsiController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PublikasiController;
+use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\ProfilpageController;
+use App\Http\Controllers\ArtikelpageController;
+use App\Http\Controllers\DetailartikelpageController;
+use App\Http\Controllers\KontakpageController;
 
 
 //route frontend
-Route::get('/', function () {
-    return view('frontend.index');
-});
-Route::get('/profil', function () {
-    return view('frontend.profil');
-});
-Route::get('/kontak', function () {
-    return view('frontend.kontak');
-});
-Route::get('/artikel', function () {
-    return view('frontend.artikel');
-});
+Route::get('/', [HomepageController::class, 'index'])->name('home');
+Route::get('/profil', [ProfilpageController::class, 'index'])->name('profil');
+Route::get('/artikel', [ArtikelpageController::class, 'index'])->name('artikel');
+Route::get('/detail-artikel/{slug}', [ArtikelpageController::class, 'detail-artikel'])->name('detail-artikel');
+Route::get('/artikel/{slug}', [DetailartikelpageController::class, 'show'])->name('detail.artikel');
+Route::get('/kontak', [KontakpageController::class, 'index'])->name('kontak');
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
@@ -54,7 +54,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('news', NewsController::class)->except(['destroy']);
     Route::delete('/news/{id}', [NewsController::class, 'destroy'])->name('news.destroy');
     Route::put('/berita/{berita}', [NewsController::class, 'update'])->name('berita.update');
-    Route::get('/detail-artikel/{slug}', [NewsController::class, 'show'])->name('detail.artikel');
 
     // Profile Dinas Routes
     Route::resource('profile_dinas', ProfileDinasController::class)->except(['destroy']);
@@ -64,11 +63,11 @@ Route::middleware('auth')->group(function () {
     // Program Kerja Routes
     Route::resource('program_kerja', ProgramKerjaController::class)->except(['destroy']);
     Route::delete('/program_kerja/{id}', [ProgramKerjaController::class, 'destroy'])->name('program_kerja.destroy');
-    
+
     // Fungsi Kerja Routes
     Route::resource('fungsi', FungsiController::class)->except(['destroy']);
     Route::delete('/fungsi/{id}', [FungsiController::class, 'destroy'])->name('fungsi.destroy');
-    
+
     // Tugas Routes
     Route::resource('tugas_dinas', TugasDinasController::class)->except(['destroy']);
     Route::delete('/tugas_dinas/{id}', [TugasDinasController::class, 'destroy'])->name('tugas_dinas.destroy');
@@ -81,7 +80,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('partners', PartnersController::class)->except(['destroy']);
     Route::delete('/partners/{id}', [PartnersController::class, 'destroy'])->name('partners.destroy');
     Route::put('/partners/{partners}', [PartnersController::class, 'update'])->name('partners.update');
-    
+
     // Testimoni Routes
     Route::resource('testimoni', TestimoniController::class)->except(['destroy']);
     Route::delete('/testimoni/{id}', [TestimoniController::class, 'destroy'])->name('testimoni.destroy');
