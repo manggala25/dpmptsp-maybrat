@@ -23,6 +23,8 @@ use App\Http\Controllers\KontakpageController;
 use App\Http\Controllers\PerizinanpageController;
 use App\Http\Controllers\DetailperizinanpageController;
 use App\Http\Controllers\MenuHomeController;
+use App\Http\Controllers\MenuProfilController;
+use App\Http\Controllers\MenuArtikelController;
 
 //route frontend
 //home
@@ -33,17 +35,13 @@ Route::get('/profil', [ProfilpageController::class, 'index'])->name('profil');
 Route::get('/perizinan', [PerizinanpageController::class, 'index'])->name('perizinan');
 Route::get('/detail-perizinan', [PerizinanpageController::class, 'detail-perizinan'])->name('detail-perizinan');
 Route::get('/detail-perizinan', [DetailperizinanpageController::class, 'show'])->name('detail-perizinan');
-//artikel
+// Rute artikel
 Route::get('/artikel', [ArtikelpageController::class, 'index'])->name('artikel');
-Route::get('/detail-artikel/{slug}', [ArtikelpageController::class, 'detail-artikel'])->name('detail-artikel');
+Route::get('/detail-artikel/{slug}', [ArtikelpageController::class, 'show'])->name('detail-artikel');
 Route::get('/artikel/{slug}', [DetailartikelpageController::class, 'show'])->name('detail.artikel');
 //contact
 Route::get('/kontak', [KontakpageController::class, 'index'])->name('kontak');
 
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
@@ -67,6 +65,14 @@ Route::middleware('auth')->group(function () {
     // Section Homepage Routes
     Route::resource('menuhome', MenuHomeController::class)->except(['destroy']);
     Route::delete('/menuhome/{id}', [MenuHomeController::class, 'destroy'])->name('menuhome.destroy');
+    
+    // Section Profil Pages Routes
+    Route::resource('menuprofil', MenuProfilController::class)->except(['destroy']);
+    Route::delete('/menuprofil/{id}', [MenuProfilController::class, 'destroy'])->name('menuprofil.destroy');
+
+    // Section Artikel Pages Routes
+    Route::resource('menuartikel', MenuArtikelController::class)->except(['destroy']);
+    Route::delete('/menuartikel/{id}', [MenuArtikelController::class, 'destroy'])->name('menuartikel.destroy');
 
     // Berita Routes
     Route::resource('news', NewsController::class)->except(['destroy']);

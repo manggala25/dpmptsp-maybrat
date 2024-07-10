@@ -8,6 +8,8 @@ use App\Models\Fungsi;
 use App\Models\TugasDinas;
 use App\Models\Layanan;
 use App\Models\News;
+use App\Models\MenuHome;
+use App\Models\MenuArtikel;
 
 class DetailartikelpageController extends Controller
 {
@@ -17,8 +19,10 @@ class DetailartikelpageController extends Controller
         $tugas_dinas = TugasDinas::where('status', 'aktif')->get();
         $fungsi = Fungsi::where('status', 'aktif')->get();
         $layanan = Layanan::where('status', 'aktif')->get();
+        $menuhome = MenuHome::findOrFail(1);
+        $menuartikel = MenuArtikel::findOrFail(1);
 
-        return view('frontend.detail_artikel', compact('contact', 'tugas_dinas', 'fungsi', 'layanan'));
+        return view('frontend.detail_artikel', compact('contact', 'tugas_dinas', 'fungsi', 'layanan', 'menuhome', 'menuartikel'));
     }
 
     public function show($slug)

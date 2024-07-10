@@ -14,7 +14,7 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                        <h4 class="card-title">Atur Halaman Home </h4>
+                        <h4 class="card-title">Atur Halaman Artikel </h4>
                         <button type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#tambahData"><i class="fa-solid fa-plus me-2"></i>Tambah Data</button>
                     </div>
                     <div class="card-body">
@@ -24,18 +24,14 @@
                                     <tr>
                                         {{-- <th></th> --}}
                                         <th class="text-uppercase text-primary text-sm font-weight-bold">Title Hero</th>
-                                        <th class="text-uppercase text-primary text-sm font-weight-bold">Paragraf Hero</th>
                                         <th class="text-center text-uppercase text-primary text-sm font-weight-bold">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($menuhome as $item)
+                                    @foreach ($menuartikel as $item)
                                     <tr>
                                         <td>
                                             <h6 class="mb-0 text-sm">{{ $item->title_hero }}</h6>
-                                        </td>
-                                        <td>
-                                            <p class="mb text-sm">{{ $item->paragraf_hero }}</p>
                                         </td>
                                         <td class="text-center">
                                             <div class="d-flex align-items-center justify-content-center">
@@ -69,10 +65,10 @@
 
 
 
-  @include('menuhome.detail')
-  @include('menuhome.create')
-  @include('menuhome.delete')
-  @include('menuhome.edit')
+  @include('menuartikel.detail')
+  @include('menuartikel.create')
+  @include('menuartikel.delete')
+  @include('menuartikel.edit')
 
   @include('layouts.setting-theme')
   @include('layouts.script')

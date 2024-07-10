@@ -5,7 +5,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="font-weight-bolder text-info text-gradient">Buat Data Halaman Profil</h3>
+                    <h3 class="font-weight-bolder text-info text-gradient">Tambah Data Profil Page</h3>
                 </div>
                 <div class="modal-body">
                     <form id="formTambahData" action="{{ route('menuprofil.store') }}" method="POST" enctype="multipart/form-data">

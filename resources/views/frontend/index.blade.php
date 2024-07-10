@@ -242,14 +242,12 @@
                 </div>
             </div>
             <div class="row">
-
                 @php
                     $news = \App\Models\News::where('status', 'published')
                                     ->orderBy('tanggal_publikasi', 'desc')
                                     ->take(3)
                                     ->get();
                 @endphp
-
                 @foreach ($news as $item)
                 <div class="col-lg-4 col-md-6 mt-4 pt-2">
                     <div class="blog position-relative overflow-hidden shadow rounded">

@@ -8,22 +8,24 @@ use App\Models\Fungsi;
 use App\Models\TugasDinas;
 use App\Models\Layanan;
 use App\Models\News; // Import model News
+use App\Models\MenuHome;
+use App\Models\MenuArtikel;
 
 class ArtikelpageController extends Controller
 {
     public function index()
     {
         $contact = Contact::all();
-        $tugas_dinas = TugasDinas::where('status', 'aktif')->get();
-        $fungsi = Fungsi::where('status', 'aktif')->get();
-        $layanan = Layanan::where('status', 'aktif')->get();
-
+        
         // Ambil data artikel
         $news = News::where('status', 'published')
-            ->orderBy('tanggal_publikasi', 'desc')
-            ->paginate(10); // Gunakan paginate untuk pagination
+        ->orderBy('tanggal_publikasi', 'desc')
+        ->paginate(10); // Gunakan paginate untuk pagination
+        
+        $menuhome = MenuHome::findOrFail(1);
+        // $menuartikel = MenuArtikel::findOrFail(1);
 
-        return view('frontend.artikel', compact('contact', 'tugas_dinas', 'fungsi', 'layanan', 'news'));
+        return view('frontend.artikel', compact('contact','news', 'menuhome' ));
     }
 
     public function show($slug)

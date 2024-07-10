@@ -20,19 +20,32 @@
     <!-- Navigation Bar-->
     
     <!-- Start home -->
-    <section class="bg-half page-next-level" style="background-image: url({{ asset('storage/images/maybrat-view.png') }});">
+    <section class="bg-half page-next-level" style="background-image: url({{ asset('storage/'. $menuprofil->bg_hero) }});">
         <div class="bg-overlay"></div>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="text-center text-white">
-                        <h4 class="text-uppercase title mb-4">Tentang Kami</h4>
+                        <h4 class="text-uppercase title mb-4">{{ $menuprofil->title_hero }}</h4>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- end home -->
+
+    {{-- Deskripsi --}}
+    <section>
+        <div class="container">
+            <div class="row d-flex justify-content-center pt-5">
+                <div class="col-md-10 py-5">
+                    <blockquote class="blockquote p-3">
+                        <p class="text-muted mb-0 font-italic" style="text-align: justify; text-justify: inter-word">"{{ $profile_dinas->deskripsi }}"</p>
+                    </blockquote>
+                </div>
+            </div>
+    </section>
+    {{-- Deskripsi --}}
 
     <!-- ABOUT US START -->
     <section class="section">
@@ -44,11 +57,11 @@
                     </div>
                     <div class="col-lg-6 col-md-8">
                         <div class="about-desc ms-lg-4">
-                            <h4 class="text-dark">Visi</h4>
+                            <h4 class="text-dark">{{ $menuprofil -> title_visi }}</h4>
                             <p class="text-muted">{{ $profile_dinas->visi }}</p>
-                            <h4 class="text-dark">Misi</h4>
+                            <h4 class="text-dark">{{ $menuprofil -> title_misi }}</h4>
                             <p class="text-muted">{{ $profile_dinas->misi }}</p>
-                            <h4 class="text-dark">Moto</h4>
+                            <h4 class="text-dark">{{ $menuprofil -> title_motto }}</h4>
                             <p class="text-muted">"{{ $profile_dinas->motto }}"</p>
                         </div>
                     </div>
@@ -67,7 +80,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h4 class="text-dark mb-3">Tugas</h4>
+                    <h4 class="text-dark mb-3">{{ $menuprofil -> title_tugas }}</h4>
                 </div>
             </div>
 
@@ -87,7 +100,7 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <h4 class="text-dark mt-4">Fungsi:</h4>
+                            <h4 class="text-dark mt-4">{{ $menuprofil -> title_fungsi }}</h4>
                         </div>
                     </div>
 
@@ -98,6 +111,26 @@
                                     <ol class="text-muted mb-2">
                                     @foreach ($fungsi as $index => $fungsi)
                                         <li class="text-muted mb-2 ">{{ $fungsi->deskripsi }}</li>
+                                    @endforeach
+                                </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h4 class="text-dark mt-4">{{ $menuprofil -> title_program }}</h4>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="job-detail border rounded mt-2 p-4">
+                                <div class="job-detail-desc">
+                                    <ol class="text-muted mb-2">
+                                    @foreach ($program_kerja as $index => $program_kerja)
+                                        <li class="text-muted mb-2 ">{{ $program_kerja->nama_program }}</li>
                                     @endforeach
                                 </ol>
                                 </div>
@@ -196,7 +229,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-5">
-                    <h3 class="text-dark fw-bold">Publikasi</h3>
+                    <h3 class="text-dark fw-bold">{{ $menuprofil->title_publikasi }}</h3>
                     <div id="testimonial-carousel" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             @foreach($publikasi as $key => $item)
@@ -249,7 +282,7 @@
 
     
     {{-- Testimoni & Instansi --}}
-    <x-testimoni-instansi :testimoni="$testimoni" :partners="$partners" />
+    <x-testimoni-instansi :testimoni="$testimoni" :partners="$partners" :menuhome="$menuhome"/>
     {{-- Testimoni & Instansi --}}
 
     {{-- Footer --}}

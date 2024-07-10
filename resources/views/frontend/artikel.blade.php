@@ -16,7 +16,7 @@
     <!-- Loader -->
 
     <!-- Navigation Bar-->
-    <x-navbar :$contact/>
+    <x-navbar :$contact :menuhome="$menuhome" />
     <!-- Navigation Bar-->
 
     <!-- Start home -->
@@ -77,7 +77,7 @@
     <!-- blog end -->
 
     {{-- Footer --}}
-    <x-footer :$contact />
+    <x-footer :$contact :menuhome="$menuhome"/>
     {{-- Footer --}}
 
     <x-script></x-script>

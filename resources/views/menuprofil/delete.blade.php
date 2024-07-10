@@ -1,11 +1,11 @@
     {{-- Modal hapus --}}
-    @foreach ($menuhome as $item)
+    @foreach ($menuprofil as $item)
     <!-- Modal Hapus Data -->
     <div class="modal fade" id="deleteData{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteDataTitle{{ $item->id }}" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="deleteDataTitle{{ $item->id }}">Hapus Data Halaman Beranda</h5>
+                    <h5 class="modal-title" id="deleteDataTitle{{ $item->id }}">Hapus Data Halaman Profil</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <form action="{{ route('menuhome.destroy', $item->id) }}" method="POST">
+                    <form action="{{ route('menuprofil.destroy', $item->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Batal</button>
