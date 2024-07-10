@@ -16,16 +16,18 @@ class ArtikelpageController extends Controller
     public function index()
     {
         $contact = Contact::all();
-        
+
         // Ambil data artikel
         $news = News::where('status', 'published')
-        ->orderBy('tanggal_publikasi', 'desc')
-        ->paginate(10); // Gunakan paginate untuk pagination
-        
-        $menuhome = MenuHome::findOrFail(1);
-        // $menuartikel = MenuArtikel::findOrFail(1);
+            ->orderBy('tanggal_publikasi', 'desc')
+            ->paginate(10); // Gunakan paginate untuk pagination
 
-        return view('frontend.artikel', compact('contact','news', 'menuhome' ));
+        $menuhome = MenuHome::findOrFail(1);
+
+        // Ambil satu data dari MenuArtikel
+        $menuartikel = MenuArtikel::first();
+
+        return view('frontend.artikel', compact('contact', 'news', 'menuhome', 'menuartikel'));
     }
 
     public function show($slug)

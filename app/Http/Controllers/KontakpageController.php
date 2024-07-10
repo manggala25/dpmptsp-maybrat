@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Models\MenuHome;
+use App\Models\MenuKontak;
 
 class KontakpageController extends Controller
 {
@@ -17,7 +18,8 @@ class KontakpageController extends Controller
         $gmaps_embed = $contact->firstWhere('nama_informasi', 'Gmaps Embed');
 
         $menuhome = MenuHome::findOrFail(1);
+        $menukontak = MenuKontak::first();
 
-        return view('frontend.kontak', compact('contact', 'gmaps_embed', 'menuhome'));
+        return view('frontend.kontak', compact('contact', 'gmaps_embed', 'menuhome', 'menukontak'));
     }
 }

@@ -159,11 +159,11 @@
                     </div>
 
                     <div class="job-detail border rounded mt-4 p-4">
-                        <h5 class="text-muted text-center pb-2">
+                        <h5 class="text-muted text-center">
                             <i class="mdi mdi-clock me-2"></i>
                             Jam Operasional
                         </h5>
-                        <p class="text-muted text-center mb-0">Zonasi waktu WIT</p>
+                        <p class="text-muted text-center mb-3">(Zonasi waktu WIT)</p>
 
                         <div class="job-detail-time border-top pt-4">
                             <ul class="list-inline mb-0">

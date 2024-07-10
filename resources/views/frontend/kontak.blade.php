@@ -20,13 +20,13 @@
     <!-- Navigation Bar-->
     
     <!-- Start home -->
-    <section class="bg-half page-next-level" style="background-image: url({{ asset('storage/images/maybrat-view.png') }});"> 
+    <section class="bg-half page-next-level" style="background-image: url('{{ asset('storage/'. $menukontak-> bg_hero) }}');"> 
         <div class="bg-overlay"></div>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="text-center text-white">
-                        <h4 class="text-uppercase title mb-4">Informasi Kontak</h4>
+                        <h4 class="text-uppercase title mb-4">{{ $menukontak->title_hero }}</h4>
                         <ul class="page-next d-inline-block mb-0">
                         </ul>
                     </div>

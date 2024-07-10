@@ -20,13 +20,13 @@
     <!-- Navigation Bar-->
 
     <!-- Start home -->
-    <section class="bg-half page-next-level" style="background-image: url('{{ asset('storage/images/bg-artikel.jpg') }}');"> 
+    <section class="bg-half page-next-level" style="background-image: url('{{ asset('storage/'. $menuartikel-> bg_hero) }}');"> 
         <div class="bg-overlay"></div>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="text-center text-white">
-                        <h4 class="text-uppercase title mb-4">Artikel</h4>
+                        <h4 class="text-uppercase title mb-4">{{ $menuartikel->title_hero }}</h4>
                     </div>
                 </div>
             </div>

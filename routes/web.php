@@ -25,6 +25,7 @@ use App\Http\Controllers\DetailperizinanpageController;
 use App\Http\Controllers\MenuHomeController;
 use App\Http\Controllers\MenuProfilController;
 use App\Http\Controllers\MenuArtikelController;
+use App\Http\Controllers\MenuKontakController;
 
 //route frontend
 //home
@@ -73,6 +74,10 @@ Route::middleware('auth')->group(function () {
     // Section Artikel Pages Routes
     Route::resource('menuartikel', MenuArtikelController::class)->except(['destroy']);
     Route::delete('/menuartikel/{id}', [MenuArtikelController::class, 'destroy'])->name('menuartikel.destroy');
+
+    // Section Kontak Pages Routes
+    Route::resource('menukontak', MenuKontakController::class)->except(['destroy']);
+    Route::delete('/menukontak/{id}', [MenuKontakController::class, 'destroy'])->name('menukontak.destroy');
 
     // Berita Routes
     Route::resource('news', NewsController::class)->except(['destroy']);
