@@ -23,8 +23,9 @@
     <link rel="stylesheet" href="{{ asset('template/dpmptsp-master/html/css/owl.carousel.css') }}" />
     <link rel="stylesheet" href="{{ asset('template/dpmptsp-master/html/css/owl.theme.css') }}" />
     <link rel="stylesheet" href="{{ asset('template/dpmptsp-master/html/css/owl.transitions.css') }}" />
-
+    
     <!-- Custom  Css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('template/dpmptsp-master/html/css/style.min.css') }}" />
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
 </head>

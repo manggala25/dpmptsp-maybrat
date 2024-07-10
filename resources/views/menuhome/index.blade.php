@@ -14,27 +14,28 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                        <h4 class="card-title">Daftar Fungsi Dinas</h4>
-                        <button type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#tambahData"><i class="fa-solid fa-plus me-2"></i>Tambah Fungsi</button>
+                        <h4 class="card-title">Atur Menu Home </h4>
+                        {{-- <button type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#tambahData"><i class="fa-solid fa-plus me-2"></i>Tambah Data</button> --}}
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table align-items-center mb-0 displayw" id="example" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th class="text-uppercase text-primary text-sm font-weight-bold">Deskripsi Fungsi</th>
-                                        <th class="text-center text-uppercase text-primary text-sm font-weight-bold">Status</th>
+                                        {{-- <th></th> --}}
+                                        <th class="text-uppercase text-primary text-sm font-weight-bold">Title Hero</th>
+                                        <th class="text-uppercase text-primary text-sm font-weight-bold">Paragraf Hero</th>
                                         <th class="text-center text-uppercase text-primary text-sm font-weight-bold">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($fungsi as $item)
+                                    @foreach ($menuhome as $item)
                                     <tr>
-                                        <td>{{ $item->deskripsi }}</td>
-                                        <td class="text-center">
-                                            <span class="badge badge-sm {{ $item->status == 'aktif' ? 'bg-gradient-success' : 'bg-gradient-danger' }}">
-                                                {{ $item->status == 'aktif' ? 'Aktif' : 'Tidak Aktif' }}
-                                            </span>
+                                        <td>
+                                            <h6 class="mb-0 text-sm">{{ $item->title_hero }}</h6>
+                                        </td>
+                                        <td>
+                                            <p class="mb text-sm">{{ $item->paragraf_hero }}</p>
                                         </td>
                                         <td class="text-center">
                                             <div class="d-flex align-items-center justify-content-center">
@@ -42,6 +43,7 @@
                                                 <button type="button" class="btn btn-link text-secondary mb-0" data-bs-toggle="modal" data-bs-target="#detailData{{ $item->id }}">
                                                     <i class="fa-solid fa-circle-info text-info fa-lg"></i>
                                                 </button>
+
                                                 <!-- Tombol Edit -->
                                                 <button type="button" class="btn btn-link text-secondary mb-0" data-bs-toggle="modal" data-bs-target="#editData{{ $item->id }}">
                                                     <i class="fa-solid fa-pen-to-square text-primary fa-lg"></i>
@@ -65,9 +67,12 @@
     </div>
   </main>
 
-  @include('fungsi.create')
-  @include('fungsi.delete')
-  @include('fungsi.edit')
+
+
+  @include('menuhome.detail')
+  {{-- @include('menuhome.create') --}}
+  @include('menuhome.delete')
+  @include('menuhome.edit')
 
   @include('layouts.setting-theme')
   @include('layouts.script')

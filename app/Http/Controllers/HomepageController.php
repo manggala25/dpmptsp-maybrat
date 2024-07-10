@@ -11,6 +11,7 @@ use App\Models\Portal;
 use App\Models\ProfileDinas;
 use App\Models\Testimoni;
 use App\Models\Partners;
+use App\Models\MenuHome;
 
 class HomepageController extends Controller
 {
@@ -28,9 +29,10 @@ class HomepageController extends Controller
             $profile_dinas = ProfileDinas::findOrFail(1);
             $short_description = $this->limitDescription($profile_dinas->deskripsi, 600);
 
-            return view('frontend.index', compact('contact', 'tugas_dinas', 'fungsi', 'layanan', 'profile_dinas', 'short_description', 'portal', 'testimoni', 'partners'));
+            $menuhome = MenuHome::findOrFail(1);
+
+            return view('frontend.index', compact('contact', 'tugas_dinas', 'fungsi', 'layanan', 'profile_dinas', 'short_description', 'portal', 'testimoni', 'partners', 'menuhome'));
         } catch (\Exception $e) {
-            // Handle jika ada error, misalnya redirect ke halaman error atau tampilkan pesan
             return redirect()->route('home')->with('error', 'Terjadi kesalahan dalam mengambil data.');
         }
     }

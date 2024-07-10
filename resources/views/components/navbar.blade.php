@@ -31,10 +31,10 @@
             <!-- Logo container-->
             <div>
                 <a href="#" class="logo">
-                    <img src="{{ asset('storage/images/logo-maybrat.png') }}" alt="" class="logo-light" height="28" />
-                    <img src="{{ asset('storage/images/logo-maybrat-dark.png') }}" alt="" class="logo-dark" height="28" />
+                    <img src="{{ asset('storage/images/logo-maybrat.png') }}" alt="Logo Light" class="logo-light" height="28" />
+                    <img src="{{ asset('storage/images/logo-maybrat-dark.png') }}" alt="Logo Dark" class="logo-dark" height="28" />
                 </a>
-            </div>                 
+            </div>              
            <!--end login button-->
             <!-- End Logo container-->
             <div class="menu-extras">
@@ -81,6 +81,9 @@
                                 </ul>  
                             </li>
                         </ul>
+                    </li>
+                    <li class="{{ Request::is('perizinan') ? 'active' : '' }}">
+                        <a href="{{ url('/perizinan') }}">Perizinan</a>
                     </li>
                     <li class="{{ Request::is('artikel') ? 'active' : '' }}">
                         <a href="{{ url('/artikel') }}">Artikel</a>

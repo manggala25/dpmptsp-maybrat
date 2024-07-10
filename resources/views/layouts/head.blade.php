@@ -18,11 +18,6 @@
   <link id="pagestyle" href="{{ asset('template/argon-dashboard-master/assets/css/argon-dashboard.css?v=2.0.4') }}" rel="stylesheet" />
   {{-- Fontawesome --}}
   <script src="https://kit.fontawesome.com/decb368884.js" crossorigin="anonymous"></script>
-  {{-- Jquery --}}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   {{-- Sweetalert --}}
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  {{-- Datatables --}}
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
-  <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
 </head>

@@ -12,7 +12,6 @@
                     @if ($alamatKantor)
                         <li class="mb-2">
                             <div class="d-flex align-items-center">
-                                <p class="text-sm opacity-50 mb-0 me-2">{{ $alamatKantor->nama_informasi }} :</p>
                                 <a href="{{ $alamatKantor->link }}" class="text-foot text-sm mb-0" style="text-decoration: none; color: inherit;">
                                     {{ $alamatKantor->detail }}
                                 </a>

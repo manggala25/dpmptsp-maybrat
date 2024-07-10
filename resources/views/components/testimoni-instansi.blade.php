@@ -4,8 +4,10 @@
             <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="section-title text-center mb-4 pb-2">
-                        <h4 class="title title-line pb-5 fw-bold">Ucapan</h4>
-                        <p class="text-muted para-desc mx-auto mb-1">Pendapat mereka mengenai DPMPTSP Kabupaten Maybrat.</p>
+                        <h4 class="title title-line pb-5 fw-bold">{{ $menuhome->title_ucapan }}</h4>
+                        <p class="text-muted para-desc mx-auto mb-1">
+                            {{ $menuhome->paragraf_ucapan }}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -36,8 +38,10 @@
             <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="section-title text-center mb-4 pb-2">
-                        <h4 class="title title-line fw-bold pb-5">Instansi Terkait</h4>
-                        <p class="text-muted para-desc mx-auto mb-1">Kerjasama yang kami bangun untuk memastikan layanan terbaik bagi masyarakat Kabupaten Maybrat, Papua Barat.</p>
+                        <h4 class="title title-line fw-bold pb-5">{{ $menuhome->title_instansi }}</h4>
+                        <p class="text-muted para-desc mx-auto mb-1">
+                            {{ $menuhome->paragraf_instansi }}
+                        </p>
                     </div>
                 </div>
             </div>

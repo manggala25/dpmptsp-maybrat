@@ -2,6 +2,7 @@
 
 use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PortalController;
 use App\Http\Controllers\ProfileDinasController;
@@ -19,14 +20,24 @@ use App\Http\Controllers\ProfilpageController;
 use App\Http\Controllers\ArtikelpageController;
 use App\Http\Controllers\DetailartikelpageController;
 use App\Http\Controllers\KontakpageController;
-
+use App\Http\Controllers\PerizinanpageController;
+use App\Http\Controllers\DetailperizinanpageController;
+use App\Http\Controllers\MenuHomeController;
 
 //route frontend
+//home
 Route::get('/', [HomepageController::class, 'index'])->name('home');
+//profil
 Route::get('/profil', [ProfilpageController::class, 'index'])->name('profil');
+//perizinan
+Route::get('/perizinan', [PerizinanpageController::class, 'index'])->name('perizinan');
+Route::get('/detail-perizinan', [PerizinanpageController::class, 'detail-perizinan'])->name('detail-perizinan');
+Route::get('/detail-perizinan', [DetailperizinanpageController::class, 'show'])->name('detail-perizinan');
+//artikel
 Route::get('/artikel', [ArtikelpageController::class, 'index'])->name('artikel');
 Route::get('/detail-artikel/{slug}', [ArtikelpageController::class, 'detail-artikel'])->name('detail-artikel');
 Route::get('/artikel/{slug}', [DetailartikelpageController::class, 'show'])->name('detail.artikel');
+//contact
 Route::get('/kontak', [KontakpageController::class, 'index'])->name('kontak');
 
 
@@ -46,9 +57,16 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    // Dashboard Routes
+    Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard');
+
     // Portal Routes
     Route::resource('portal', PortalController::class)->except(['destroy']);
     Route::delete('/portal/{id}', [PortalController::class, 'destroy'])->name('portal.destroy');
+
+    // Section Homepage Routes
+    Route::resource('menuhome', MenuHomeController::class)->except(['destroy']);
+    Route::delete('/menuhome/{id}', [MenuHomeController::class, 'destroy'])->name('menuhome.destroy');
 
     // Berita Routes
     Route::resource('news', NewsController::class)->except(['destroy']);

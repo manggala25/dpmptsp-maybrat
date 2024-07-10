@@ -27,4 +27,19 @@
 
     <script src="{{ asset('template/dpmptsp-master/html/js/app.js') }}"></script>
     <script src="{{ asset('template/dpmptsp-master/html/js/home.js') }}"></script>
+
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
+    <script>
+        new DataTable('#dataPerizinan', {
+            responsive: true
+        });
+    </script>
+    {{-- Tabs Navigation --}}
+    <script>
+        // Initialization for ES Users
+        import { Tab, initMDB } from "mdb-ui-kit";
+
+        initMDB({ Tab });
+    </script>
     

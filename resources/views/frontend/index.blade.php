@@ -16,11 +16,11 @@
     <!-- Loader -->
 
     <!-- Navigation Bar-->
-    <x-navbar :$contact/>
+    <x-navbar :$contact :menuhome="$menuhome"/>
     <!-- Navigation Bar-->
 
     <!-- Start Home -->
-    <section class="bg-home" style="background: url('{{ asset('storage/images/image-artikel-bg.jpg') }}') center;">
+    <section class="bg-home" style="background: url('{{ asset('storage/'. $menuhome-> bg_hero) }}') center;">
         <div class="bg-overlay"></div>
         <div class="home-center">
             <div class="home-desc-center">
@@ -28,8 +28,12 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-12">
                             <div class="title-heading text-center text-white">
-                                <h6 class="small-title text-uppercase text-light mb-3">DPMPTSP KABUPATEN MAYBRAT</h6>
-                                <h1 class="heading fw-bold mb-4">PORTAL LAYANAN KABUPATEN MAYBRAT</h1>
+                                <h6 class="small-title text-uppercase text-light mb-3">
+                                    {{ $menuhome-> paragraf_hero }}
+                                </h6>
+                                <h1 class="heading fw-bold mb-4">
+                                    {{ $menuhome-> title_hero }}
+                                </h1>
                             </div>
                         </div>
                     </div>
@@ -67,11 +71,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-5">
-                    <img src="{{ asset('storage/images/papua.jpg') }}" class="img-fluid rounded shadow" alt="">
+                    <img src="{{ asset('storage/'. $menuhome->img_profil) }}" class="img-fluid rounded shadow" alt="">
                 </div>
                 <div class="col-lg-6 col-md-7">
                     <div class="about-desc ms-lg-4">
-                        <h3 class="text-dark fw-bold"> Profil {{ $profile_dinas->nama_dinas }}</h3>
+                        <h3 class="text-dark fw-bold">{{ $menuhome->title_profil }}</h3>
                         <p class="text-muted text-justify">
                             {{ $short_description }}
                             @if (strlen($profile_dinas->deskripsi) > 600)
@@ -95,7 +99,7 @@
                 <div class="col-12">
                     {{-- Tugas --}}
                     <div class="col-lg-5">
-                        <h4 class="text-dark mt-4 fw-bold">Tugas-tugas DPMPTSP</h4>
+                        <h4 class="text-dark mt-4 fw-bold">{{ $menuhome->title_tugas }}</h4>
                     </div>
                     <div class="col-12">
                         <div class="job-detail border rounded mt-2 p-4">
@@ -113,7 +117,7 @@
                 <div class="col-12">
                     {{-- Fungsi --}}
                     <div class="col-lg-5">
-                        <h4 class="text-dark mt-4 fw-bold">Fungsi dari DPMPTSP</h4>
+                        <h4 class="text-dark mt-4 fw-bold">{{ $menuhome->title_fungsi }}</h4>
                     </div>
                     <div class="col-12">
                         <div class="job-detail border rounded mt-2 p-4">
@@ -138,8 +142,10 @@
         <div class="container">
             <div class="row">
                 <div class="section-title text-center pb-5">
-                    <h4 class="title title-line pb-5 fw-bold">Layanan</h4>
-                    <p class="text-muted para-desc mx-auto mb-1">Kami berkomitmen untuk memberikan layanan terbaik yang tidak hanya memenuhi, tetapi juga melampaui harapan Anda. Dengan pengalaman dan dedikasi kami, kami menawarkan solusi yang inovatif dan tepat waktu untuk setiap kebutuhan Anda.</p>
+                    <h4 class="title title-line pb-5 fw-bold">{{ $menuhome->title_layanan }}</h4>
+                    <p class="text-muted para-desc mx-auto mb-1">
+                        {{ $menuhome->paragraf_layanan }}
+                    </p>
                 </div>
                 @foreach ($layanan as $item) 
                 <div class="col-lg-4 col-md-6 mb-4 pt-5">
@@ -165,8 +171,10 @@
             <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="section-title text-center mb-4 pb-2">
-                        <h4 class="title title-line pb-5 fw-bold">Portal Layanan</h4>
-                        <p class="text-muted para-desc mx-auto mb-1">Menyediakan akses mudah dan cepat untuk berbagai informasi terkait layanan publik di Kabupaten Maybrat, Papua Barat.</p>
+                        <h4 class="title title-line pb-5 fw-bold">{{ $menuhome->title_portal }}</h4>
+                        <p class="text-muted para-desc mx-auto mb-1">
+                            {{ $menuhome->paragraf_portal }}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -226,8 +234,10 @@
             <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="section-title text-center mb-4 pb-2">
-                        <h4 class="title title-line pb-5 fw-bold">Berita Terbaru</h4>
-                        <p class="text-muted para-desc mx-auto mb-1">Informasi berbagai perkembangan terkini seperti proyek infrastruktur baru, program pembangunan masyarakat, dan inisiatif lingkungan yang sedang dilaksanakan.</p>
+                        <h4 class="title title-line pb-5 fw-bold">{{ $menuhome->title_berita }}</h4>
+                        <p class="text-muted para-desc mx-auto mb-1">
+                            {{ $menuhome->paragraf_berita }}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -275,11 +285,11 @@
     <!-- blog end -->
 
     {{-- Testimoni & Instansi --}}
-    <x-testimoni-instansi :testimoni="$testimoni" :partners="$partners" />
+    <x-testimoni-instansi :testimoni="$testimoni" :partners="$partners" :menuhome="$menuhome" />
     {{-- Testimoni & Instansi --}}
 
     {{-- Footer --}}
-    <x-footer :$contact />
+    <x-footer :$contact :menuhome="$menuhome" />
     {{-- Footer --}}
 
     <x-script></x-script>

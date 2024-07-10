@@ -1,5 +1,5 @@
     {{-- Modal hapus --}}
-    @foreach ($portal as $item)
+    @foreach ($menuhome as $item)
     <!-- Modal Hapus Data -->
     <div class="modal fade" id="deleteData{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteDataTitle{{ $item->id }}" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -12,7 +12,7 @@
                     <div class="py-3 text-center">
                         <i class="fa-solid fa-trash text-danger fa-3x"></i>
                         <h4 class="text-gradient text-danger mt-4">Yakin Ingin Menghapus?</h4>
-                        <p>Nama Portal: {{ $item->nama_portal }}</p>
+                        <p>ID Menu: {{ $item->id }}</p>
                     </div>
                 </div>
                 <div class="modal-footer">
