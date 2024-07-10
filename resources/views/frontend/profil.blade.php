@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
-<x-head></x-head>
+<x-head />
 
 <body>
     <!-- Loader -->
@@ -16,7 +16,7 @@
     <!-- Loader -->
 
     <!-- Navigation Bar-->
-    <x-navbar :$contact/>
+    <x-navbar :contact="$contact" :menuhome="$menuhome" />
     <!-- Navigation Bar-->
     
     <!-- Start home -->

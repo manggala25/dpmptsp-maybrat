@@ -1,6 +1,6 @@
     <!-- Navigation Bar-->
     <header id="topnav" class="defaultscroll scroll-active">
-
+    @props(['contact', 'menuhome'])
         <!-- Tagline Start -->
         <div class="tagline">
             <div class="container">
@@ -31,8 +31,8 @@
             <!-- Logo container-->
             <div>
                 <a href="#" class="logo">
-                    <img src="{{ asset('storage/images/logo-maybrat.png') }}" alt="Logo Light" class="logo-light" height="28" />
-                    <img src="{{ asset('storage/images/logo-maybrat-dark.png') }}" alt="Logo Dark" class="logo-dark" height="28" />
+                    <img src="{{ asset('storage/'. $menuhome->logo_white) }}" alt="Logo Light" class="logo-light" height="28" />
+                    <img src="{{ asset('storage/'. $menuhome->logo_dark) }}" alt="Logo Dark" class="logo-dark" height="28" />
                 </a>
             </div>              
            <!--end login button-->

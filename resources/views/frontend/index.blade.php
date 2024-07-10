@@ -16,7 +16,7 @@
     <!-- Loader -->
 
     <!-- Navigation Bar-->
-    <x-navbar :$contact :menuhome="$menuhome"/>
+    <x-navbar :contact="$contact" :menuhome="$menuhome" />
     <!-- Navigation Bar-->
 
     <!-- Start Home -->
