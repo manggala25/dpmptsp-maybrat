@@ -15,6 +15,7 @@ use App\Http\Controllers\TugasDinasController;
 use App\Http\Controllers\FungsiController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PublikasiController;
+use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ProfilpageController;
 use App\Http\Controllers\ArtikelpageController;
@@ -28,6 +29,7 @@ use App\Http\Controllers\MenuHomeController;
 use App\Http\Controllers\MenuProfilController;
 use App\Http\Controllers\MenuArtikelController;
 use App\Http\Controllers\MenuKontakController;
+
 
 
 //route frontend
@@ -67,6 +69,11 @@ Route::middleware('auth')->group(function () {
     // Portal Routes
     Route::resource('portal', PortalController::class)->except(['destroy']);
     Route::delete('/portal/{id}', [PortalController::class, 'destroy'])->name('portal.destroy');
+
+    // Data Dokumen Routes
+    Route::resource('dokumen', DokumenController::class)->except(['destroy']);
+    Route::delete('/dokumen/{id}', [DokumenController::class, 'destroy'])->name('dokumen.destroy');
+    Route::put('dokumen/{id}', [DokumenController::class, 'update'])->name('dokumen.update');
 
     // Section Homepage Routes
     Route::resource('menuhome', MenuHomeController::class)->except(['destroy']);

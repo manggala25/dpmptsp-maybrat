@@ -108,6 +108,14 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link {{ Request::is('dokumen') ? 'active' : '' }}" href="{{ url('dokumen') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-paper-diploma text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Data Dokumen</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link {{ Request::is('program_kerja') ? 'active' : '' }}" href="{{ url('program_kerja') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-app text-info text-sm opacity-10"></i>
