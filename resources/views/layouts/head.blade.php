@@ -20,4 +20,6 @@
   <script src="https://kit.fontawesome.com/decb368884.js" crossorigin="anonymous"></script>
   {{-- Sweetalert --}}
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  {{-- datatables --}}
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
 </head>

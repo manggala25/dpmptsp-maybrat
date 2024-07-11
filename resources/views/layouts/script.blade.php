@@ -15,6 +15,11 @@
   </script>
   {{-- Datatable --}}
   <script src="https://cdn.datatables.net/2.0.8/js/jquery.dataTables.js"></script>
+  <script>
+     $(document).ready(function() {
+        $('#example').DataTable();
+    });
+</script>
   
   
   <script src="{{ asset('template/argon-dashboard-master/assets/js/argon-dashboard.min.js?v=2.0.4') }}"></script>
