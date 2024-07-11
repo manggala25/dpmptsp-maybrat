@@ -26,6 +26,7 @@
     
     <!-- Custom  Css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('template/dpmptsp-master/html/css/style.min.css') }}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
 
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
 </head>

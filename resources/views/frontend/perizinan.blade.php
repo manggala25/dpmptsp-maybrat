@@ -49,7 +49,7 @@
                             <h4 class="card-title text-primary">Data Perizinan</h4>
                         </div>
                         <div class="card-body">
-                            <table id="dataPerizinan" class="table table-striped" style="width:100%">
+                            <table id="dataPerizinan" class="table table-striped table-responsive" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>#</th>

@@ -55,17 +55,17 @@
                     </div>
                     <div class="col-12 d-flex justify-between">
                         <div class="col-md-4 p-4 d-flex flex-column align-items-center">
-                            <i class="mdi mdi-check-circle text-primary h1"></i>
+                            <i class="mdi mdi-card-account-mail-outline text-primary" style="font-size: 4rem"></i>
                             <h4 class="title text-center fw-bold">Hubungi Kontak Whatsapp</h4>
                             <p class="para-desc text-center mx-auto mb-1">Pemohon melakukan pendaftaran di Admin dan mengupload semua persyaratan</p>
                         </div>
                         <div class="col-md-4 p-4 d-flex flex-column align-items-center">
-                            <i class="mdi mdi-check-circle text-primary h1"></i>
-                            <h4 class="title text-center fw-bold">Proses</h4>
+                            <i class="mdi mdi-check-network-outline text-primary" style="font-size: 4rem"></i>
+                            <h4 class="title text-center fw-bold">Proses Verifikasi</h4>
                             <p class="para-desc text-center mx-auto mb-1">Pendaftaran anda akan segera di proses oleh pihak PTSP, dan proses dapat di monitoring melalui Whatsapp</p>
                         </div>
                         <div class="col-md-4 p-4 d-flex flex-column align-items-center">
-                            <i class="mdi mdi-check-circle text-primary h1"></i>
+                            <i class="mdi mdi-file-document-check-outline text-primary" style="font-size: 4rem"></i>
                             <h4 class="title text-center fw-bold">Download SK</h4>
                             <p class="para-desc text-center mx-auto mb-1">Apabila Proses sudah selasai maka selanjutnya adalah mendownload SK Perizinan yang sudah di tandatangi secara Digital oleh kepala dinas</p>
                         </div>
@@ -84,12 +84,20 @@
                         <!-- Tabs navs -->
                         <nav>
                             <p class="text-muted text-center pb-3">Pilih kategori persyaratan dibawah ini:</p>
-                            <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
-                                <button class="nav-link active" id="nav-baru-tab" data-bs-toggle="tab" data-bs-target="#nav-baru" type="button" role="tab" aria-controls="nav-baru" aria-selected="true">
+                            <div class="nav nav-pills nav-justified" id="nav-tab" role="tablist">
+
+                                <button class="nav-link btn border active" id="nav-baru-tab" data-bs-toggle="tab" data-bs-target="#nav-baru" type="button" role="tab" aria-controls="nav-baru" aria-selected="true">
                                     Baru
                                 </button>
-                                <button class="nav-link" id="nav-perpanjang-tab" data-bs-toggle="tab" data-bs-target="#nav-perpanjang" type="button" role="tab" aria-controls="nav-perpanjang" aria-selected="false">Perpanjang</button>
-                                <button class="nav-link" id="nav-baliknama-tab" data-bs-toggle="tab" data-bs-target="#nav-baliknama" type="button" role="tab" aria-controls="nav-baliknama" aria-selected="false">Balik Nama/ Perubahan</button>
+
+                                <button class="nav-link btn border" id="nav-perpanjang-tab" data-bs-toggle="tab" data-bs-target="#nav-perpanjang" type="button" role="tab" aria-controls="nav-perpanjang" aria-selected="false">
+                                    Perpanjang
+                                </button>
+
+                                <button class="nav-link btn border" id="nav-baliknama-tab" data-bs-toggle="tab" data-bs-target="#nav-baliknama" type="button" role="tab" aria-controls="nav-baliknama" aria-selected="false">
+                                    Balik Nama/ Perubahan
+                                </button>
+
                             </div>
                         </nav>
                         {{-- isi Tabs --}}
@@ -134,7 +142,7 @@
                                             <td>Surat Pernyataan</td>
                                             <td class="text-muted">Surat Pernyataan dari pemohon</td>
                                             <td class="text-center">    
-                                                <a href="" class="btn btn-primary">Download Template</a>
+                                                <a href="" class="btn-primary">Download Template</a>
                                             </td>
                                     </tbody>
                                 </table>
@@ -157,7 +165,7 @@
                                             <td>Surat Pernyataan</td>
                                             <td class="text-muted">Surat Pernyataan dari pemohon</td>
                                             <td class="text-center">    
-                                                <a href="" class="btn btn-primary">Download Template</a>
+                                                <a href="" class="btn-primary">Download Template</a>
                                             </td>
                                     </tbody>
                                 </table>
@@ -172,8 +180,8 @@
             {{-- FAQ's --}}
             <div class="row my-5 py-4">
                 <div class="col-lg-12">
-                    <div class="section-title text-center mb-4 pb-2">
-                        <h4 class="text-dark title title-line fw-bold pb-5">Lihat Pertanyaan Seputar Perizinan</h4>
+                    <div class="section-title mb-4 pb-2">
+                        <h4 class="text-dark title fw-bold">Lihat Pertanyaan Seputar Perizinan</h4>
                     </div>
                     <div class="col-12 d-flex justify-between">
                         <div class="accordion w-100" id="accordionPanelsStayOpenExample">
@@ -222,7 +230,9 @@
                     </div>
                     <div class="col-12 d-flex justify-content-center">
                         <a href="https://wa.me/{{ $whatsappContact->detail }}" target="_blank">
-                            <button class="btn btn-primary btn-lg">Pendaftaran Perizinan</button>
+                            <button class="btn btn-primary btn-lg rounded-pill">
+                                Lanjut Untuk Pendaftaran <i class="mdi mdi-arrow-right"></i>
+                            </button>
                         </a>
                     </div>
                 </div>
