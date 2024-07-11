@@ -22,6 +22,7 @@ use App\Http\Controllers\DetailartikelpageController;
 use App\Http\Controllers\KontakpageController;
 use App\Http\Controllers\PerizinanpageController;
 use App\Http\Controllers\DetailperizinanpageController;
+use App\Http\Controllers\JamLayananController;
 use App\Http\Controllers\MenuHomeController;
 use App\Http\Controllers\MenuProfilController;
 use App\Http\Controllers\MenuArtikelController;
@@ -96,6 +97,10 @@ Route::middleware('auth')->group(function () {
     // Fungsi Kerja Routes
     Route::resource('fungsi', FungsiController::class)->except(['destroy']);
     Route::delete('/fungsi/{id}', [FungsiController::class, 'destroy'])->name('fungsi.destroy');
+
+    // Jam Layanan Routes
+    Route::resource('jam_layanan', JamLayananController::class)->except(['destroy']);
+    Route::delete('/jam_layanan/{id}', [JamLayananController::class, 'destroy'])->name('jam_layanan.destroy');
 
     // Tugas Routes
     Route::resource('tugas_dinas', TugasDinasController::class)->except(['destroy']);

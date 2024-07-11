@@ -6,7 +6,7 @@
     <meta name="keywords" content="" />
     <meta name="author" content="Themesdesign" />
 
-    {{-- <link rel="shortcut icon" href="images/logo-only.jpg"> --}}
+    <link rel="shortcut icon" href="{{ asset('template/dpmptsp-master/html/images/logo-only.jpg') }}">
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{{ asset('template/dpmptsp-master/html/css/bootstrap.min.css') }}" type="text/css">

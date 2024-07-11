@@ -65,7 +65,6 @@
                 @endforeach
 
                 <!-- Embed Google Maps -->
-
                 @if ($gmaps_embed && $gmaps_embed->link)
                     <div class="col-lg-12 mt-5">
                         <iframe src="{{ $gmaps_embed->link }}" width="100%" height="400" style="border:2px solid #ccc; border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

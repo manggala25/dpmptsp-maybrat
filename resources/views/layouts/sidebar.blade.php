@@ -68,6 +68,14 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link {{ Request::is('jam_layanan') ? 'active' : '' }}" href="{{ url('jam_layanan') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-watch-time text-warning text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Jam Layanan</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link {{ Request::is('news') ? 'active' : '' }}" href="{{ url('news') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-ruler-pencil text-info text-sm opacity-10"></i>

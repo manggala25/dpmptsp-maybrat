@@ -60,7 +60,7 @@
                     <li class="{{ Request::is('profil') ? 'active' : '' }}">
                         <a href="{{ url('/profil') }}">Profil</a>
                     </li>
-                    <li class="has-submenu {{ Request::is('layanan*') ? 'active' : '' }}">
+                    {{-- <li class="has-submenu {{ Request::is('layanan*') ? 'active' : '' }}">
                         <a href="javascript:void(0)">Layanan</a><span class="menu-arrow"></span>
                         <ul class="submenu">
                             <li class="has-submenu {{ Request::is('layanan/standar-pelayanan*') ? 'active' : '' }}">
@@ -81,7 +81,7 @@
                                 </ul>  
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
                     <li class="{{ Request::is('perizinan') ? 'active' : '' }}">
                         <a href="{{ url('/perizinan') }}">Perizinan</a>
                     </li>
