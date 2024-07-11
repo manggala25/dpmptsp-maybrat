@@ -12,6 +12,9 @@ class DetailperizinanpageController extends Controller
     {
         $contact = Contact::all();
         $menuhome = MenuHome::findOrFail(1);
-        return view('frontend.detail-perizinan', compact('contact', 'menuhome'));
+        
+        $whatsappContact = $contact->firstWhere('nama_informasi', 'Whatsapp');
+
+        return view('frontend.detail-perizinan', compact('contact', 'menuhome', 'whatsappContact'));
     }
 }

@@ -56,18 +56,18 @@
                     <div class="col-12 d-flex justify-between">
                         <div class="col-md-4 p-4 d-flex flex-column align-items-center">
                             <i class="mdi mdi-check-circle text-primary h1"></i>
-                            <h4 class="title text-center fw-bold">Tahap 1</h4>
-                            <p class="para-desc text-center mx-auto mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam alias rerum corrupti nobis, explicabo eum repellat quam quae odio facere!</p>
+                            <h4 class="title text-center fw-bold">Hubungi Kontak Whatsapp</h4>
+                            <p class="para-desc text-center mx-auto mb-1">Pemohon melakukan pendaftaran di Admin dan mengupload semua persyaratan</p>
                         </div>
                         <div class="col-md-4 p-4 d-flex flex-column align-items-center">
                             <i class="mdi mdi-check-circle text-primary h1"></i>
-                            <h4 class="title text-center fw-bold">Tahap 1</h4>
-                            <p class="para-desc text-center mx-auto mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam alias rerum corrupti nobis, explicabo eum repellat quam quae odio facere!</p>
+                            <h4 class="title text-center fw-bold">Proses</h4>
+                            <p class="para-desc text-center mx-auto mb-1">Pendaftaran anda akan segera di proses oleh pihak PTSP, dan proses dapat di monitoring melalui Whatsapp</p>
                         </div>
                         <div class="col-md-4 p-4 d-flex flex-column align-items-center">
                             <i class="mdi mdi-check-circle text-primary h1"></i>
-                            <h4 class="title text-center fw-bold">Tahap 1</h4>
-                            <p class="para-desc text-center mx-auto mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam alias rerum corrupti nobis, explicabo eum repellat quam quae odio facere!</p>
+                            <h4 class="title text-center fw-bold">Download SK</h4>
+                            <p class="para-desc text-center mx-auto mb-1">Apabila Proses sudah selasai maka selanjutnya adalah mendownload SK Perizinan yang sudah di tandatangi secara Digital oleh kepala dinas</p>
                         </div>
                     </div>
                 </div>
@@ -83,45 +83,132 @@
                     <div class="col-md-12">
                         <!-- Tabs navs -->
                         <nav>
-                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <button class="nav-link active" id="nav-baru-tab" data-bs-toggle="tab" data-bs-target="#nav-baru" type="button" role="tab" aria-controls="nav-baru" aria-selected="true">Baru</button>
+                            <p class="text-muted text-center pb-3">Pilih kategori persyaratan dibawah ini:</p>
+                            <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
+                                <button class="nav-link active" id="nav-baru-tab" data-bs-toggle="tab" data-bs-target="#nav-baru" type="button" role="tab" aria-controls="nav-baru" aria-selected="true">
+                                    Baru
+                                </button>
                                 <button class="nav-link" id="nav-perpanjang-tab" data-bs-toggle="tab" data-bs-target="#nav-perpanjang" type="button" role="tab" aria-controls="nav-perpanjang" aria-selected="false">Perpanjang</button>
-                                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button>
+                                <button class="nav-link" id="nav-baliknama-tab" data-bs-toggle="tab" data-bs-target="#nav-baliknama" type="button" role="tab" aria-controls="nav-baliknama" aria-selected="false">Balik Nama/ Perubahan</button>
                             </div>
                         </nav>
                         {{-- isi Tabs --}}
                         <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">...</div>
-                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">...</div>
-                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">...</div>
-                        <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">...</div>
+                            {{-- Tab Baru --}}
+                            <div class="tab-pane pt-5 fade show active" id="nav-baru" role="tabpanel" aria-labelledby="nav-baru-tab" tabindex="0">
+                                <table class="table table-striped-columns">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Persyaratan</th>
+                                            <th>Keterangan</th>
+                                            <th class="text-center">Template File</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Surat Pernyataan</td>
+                                            <td class="text-muted">Surat Pernyataan dari pemohon</td>
+                                            <td class="text-center">    
+                                                <a href="" class="btn-primary">Download Template</a>
+                                            </td>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            {{-- Tab Perpanjang --}}
+                            <div class="tab-pane pt-5 fade" id="nav-perpanjang" role="tabpanel" aria-labelledby="nav-perpanjang-tab" tabindex="0">
+                                <table class="table table-striped-columns">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Persyaratan</th>
+                                            <th>Keterangan</th>
+                                            <th class="text-center">Template File</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Surat Pernyataan</td>
+                                            <td class="text-muted">Surat Pernyataan dari pemohon</td>
+                                            <td class="text-center">    
+                                                <a href="" class="btn btn-primary">Download Template</a>
+                                            </td>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            {{-- Tab Balik Nama/ Perubahan --}}
+                            <div class="tab-pane pt-5 fade" id="nav-baliknama" role="tabpanel" aria-labelledby="nav-baliknama-tab" tabindex="0">
+                                <table class="table table-striped-columns">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Persyaratan</th>
+                                            <th>Keterangan</th>
+                                            <th class="text-center">Template File</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Surat Pernyataan</td>
+                                            <td class="text-muted">Surat Pernyataan dari pemohon</td>
+                                            <td class="text-center">    
+                                                <a href="" class="btn btn-primary">Download Template</a>
+                                            </td>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
 
                     </div>
                 </div>
             </div>
             <hr>
-            {{-- tahapan Perizinan --}}
+            <hr>
+            {{-- FAQ's --}}
             <div class="row my-5 py-4">
                 <div class="col-lg-12">
                     <div class="section-title text-center mb-4 pb-2">
-                        <h4 class="text-dark title title-line fw-bold pb-5">Cara Tahapan Proses Pengajuan</h4>
+                        <h4 class="text-dark title title-line fw-bold pb-5">Lihat Pertanyaan Seputar Perizinan</h4>
                     </div>
                     <div class="col-12 d-flex justify-between">
-                        <div class="col-md-4 p-4 d-flex flex-column align-items-center">
-                            <i class="mdi mdi-check-circle text-primary h1"></i>
-                            <h4 class="title text-center fw-bold">Tahap 1</h4>
-                            <p class="para-desc text-center mx-auto mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam alias rerum corrupti nobis, explicabo eum repellat quam quae odio facere!</p>
-                        </div>
-                        <div class="col-md-4 p-4 d-flex flex-column align-items-center">
-                            <i class="mdi mdi-check-circle text-primary h1"></i>
-                            <h4 class="title text-center fw-bold">Tahap 1</h4>
-                            <p class="para-desc text-center mx-auto mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam alias rerum corrupti nobis, explicabo eum repellat quam quae odio facere!</p>
-                        </div>
-                        <div class="col-md-4 p-4 d-flex flex-column align-items-center">
-                            <i class="mdi mdi-check-circle text-primary h1"></i>
-                            <h4 class="title text-center fw-bold">Tahap 1</h4>
-                            <p class="para-desc text-center mx-auto mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam alias rerum corrupti nobis, explicabo eum repellat quam quae odio facere!</p>
+                        <div class="accordion w-100" id="accordionPanelsStayOpenExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                    <h6 class="text-dark mb-0 fw-bold">
+                                        Berapa lama proses pengurusan izin ?
+                                    </h6>
+                                </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                                <div class="accordion-body">
+                                    <p class="text-dark mb-0 fw-semibold py-2 ms-2">
+                                        Untuk izin Izin jam operasional toko modern (IJOTM) lama prosesnya maksimal 5 Hari (setelah persyaratan lengkap)
+                                    </p>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                    <h6 class="text-dark mb-0 fw-bold">
+                                        Berapa lama masa berlaku izin ?
+                                    </h6>
+                                </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    <p class="text-dark mb-0 fw-semibold py-2 ms-2">
+                                        Untuk izin Izin jam operasional toko modern (IJOTM) masa berlaku 1 tahun, sampai dengan ada perubahan status
+                                    </p>
+                                </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -130,51 +217,13 @@
             {{-- tahapan Perizinan --}}
             <div class="row my-5 py-4">
                 <div class="col-lg-12">
-                    <div class="section-title text-center mb-4 pb-2">
-                        <h4 class="text-dark title title-line fw-bold pb-5">Cara Tahapan Proses Pengajuan</h4>
+                    <div class="section-title text-center pb-2">
+                        <h4 class="text-dark title title-line fw-bold pb-5">Silakan klik tombol dibawah untuk pendaftaran!</h4>
                     </div>
-                    <div class="col-12 d-flex justify-between">
-                        <div class="col-md-4 p-4 d-flex flex-column align-items-center">
-                            <i class="mdi mdi-check-circle text-primary h1"></i>
-                            <h4 class="title text-center fw-bold">Tahap 1</h4>
-                            <p class="para-desc text-center mx-auto mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam alias rerum corrupti nobis, explicabo eum repellat quam quae odio facere!</p>
-                        </div>
-                        <div class="col-md-4 p-4 d-flex flex-column align-items-center">
-                            <i class="mdi mdi-check-circle text-primary h1"></i>
-                            <h4 class="title text-center fw-bold">Tahap 1</h4>
-                            <p class="para-desc text-center mx-auto mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam alias rerum corrupti nobis, explicabo eum repellat quam quae odio facere!</p>
-                        </div>
-                        <div class="col-md-4 p-4 d-flex flex-column align-items-center">
-                            <i class="mdi mdi-check-circle text-primary h1"></i>
-                            <h4 class="title text-center fw-bold">Tahap 1</h4>
-                            <p class="para-desc text-center mx-auto mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam alias rerum corrupti nobis, explicabo eum repellat quam quae odio facere!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            {{-- tahapan Perizinan --}}
-            <div class="row my-5 py-4">
-                <div class="col-lg-12">
-                    <div class="section-title text-center mb-4 pb-2">
-                        <h4 class="text-dark title title-line fw-bold pb-5">Cara Tahapan Proses Pengajuan</h4>
-                    </div>
-                    <div class="col-12 d-flex justify-between">
-                        <div class="col-md-4 p-4 d-flex flex-column align-items-center">
-                            <i class="mdi mdi-check-circle text-primary h1"></i>
-                            <h4 class="title text-center fw-bold">Tahap 1</h4>
-                            <p class="para-desc text-center mx-auto mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam alias rerum corrupti nobis, explicabo eum repellat quam quae odio facere!</p>
-                        </div>
-                        <div class="col-md-4 p-4 d-flex flex-column align-items-center">
-                            <i class="mdi mdi-check-circle text-primary h1"></i>
-                            <h4 class="title text-center fw-bold">Tahap 1</h4>
-                            <p class="para-desc text-center mx-auto mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam alias rerum corrupti nobis, explicabo eum repellat quam quae odio facere!</p>
-                        </div>
-                        <div class="col-md-4 p-4 d-flex flex-column align-items-center">
-                            <i class="mdi mdi-check-circle text-primary h1"></i>
-                            <h4 class="title text-center fw-bold">Tahap 1</h4>
-                            <p class="para-desc text-center mx-auto mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam alias rerum corrupti nobis, explicabo eum repellat quam quae odio facere!</p>
-                        </div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <a href="https://wa.me/{{ $whatsappContact->detail }}" target="_blank">
+                            <button class="btn btn-primary btn-lg">Pendaftaran Perizinan</button>
+                        </a>
                     </div>
                 </div>
             </div>
