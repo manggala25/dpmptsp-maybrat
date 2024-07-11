@@ -61,7 +61,7 @@
                             <p class="text-muted">{{ $profile_dinas->visi }}</p>
                             <h4 class="text-dark">{{ $menuprofil -> title_misi }}</h4>
                             <p class="text-muted">{{ $profile_dinas->misi }}</p>
-                            <h4 class="text-dark">{{ $menuprofil -> title_motto }}</h4>
+                            <h4 class="text-dark">{{ $menuprofil -> title_moto }}</h4>
                             <p class="text-muted">"{{ $profile_dinas->motto }}"</p>
                         </div>
                     </div>
