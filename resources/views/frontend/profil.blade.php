@@ -53,7 +53,7 @@
             <div class="row">
                 @if ($profile_dinas)
                     <div class="col-lg-6 col-md-4">
-                        <img src="{{ asset('storage/images/papua.jpg') }}" class="img-fluid rounded shadow" alt="">
+                        <img src="{{ asset('storage/'. $menuprofil->img_visi) }}" class="img-fluid rounded shadow" alt="">
                     </div>
                     <div class="col-lg-6 col-md-8">
                         <div class="about-desc ms-lg-4">

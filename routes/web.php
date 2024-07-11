@@ -20,6 +20,7 @@ use App\Http\Controllers\ProfilpageController;
 use App\Http\Controllers\ArtikelpageController;
 use App\Http\Controllers\DetailartikelpageController;
 use App\Http\Controllers\KontakpageController;
+use App\Http\Controllers\DownloadpageController;
 use App\Http\Controllers\PerizinanpageController;
 use App\Http\Controllers\DetailperizinanpageController;
 use App\Http\Controllers\JamLayananController;
@@ -27,6 +28,7 @@ use App\Http\Controllers\MenuHomeController;
 use App\Http\Controllers\MenuProfilController;
 use App\Http\Controllers\MenuArtikelController;
 use App\Http\Controllers\MenuKontakController;
+
 
 //route frontend
 //home
@@ -43,6 +45,8 @@ Route::get('/detail-artikel/{slug}', [ArtikelpageController::class, 'show'])->na
 Route::get('/artikel/{slug}', [DetailartikelpageController::class, 'show'])->name('detail.artikel');
 //contact
 Route::get('/kontak', [KontakpageController::class, 'index'])->name('kontak');
+//download
+Route::get('/download', [DownloadpageController::class, 'index'])->name('download');
 
 
 Route::middleware(['auth'])->group(function () {
