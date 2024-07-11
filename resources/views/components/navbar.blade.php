@@ -85,9 +85,9 @@
                     <li class="{{ Request::is('perizinan') ? 'active' : '' }}">
                         <a href="{{ url('/perizinan') }}">Perizinan</a>
                     </li>
-                    <li class="{{ Request::is('donwload') ? 'active' : '' }}">
+                    {{-- <li class="{{ Request::is('donwload') ? 'active' : '' }}">
                         <a href="{{ url('/donwload') }}">Download</a>
-                    </li>
+                    </li> --}}
                     <li class="{{ Request::is('artikel') ? 'active' : '' }}">
                         <a href="{{ url('/artikel') }}">Artikel</a>
                     </li>
