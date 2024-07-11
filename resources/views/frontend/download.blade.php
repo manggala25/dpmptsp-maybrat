@@ -60,9 +60,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($dokumen as $item)
+                                    @foreach ($dokumen as $index => $item)
                                         <tr>
-                                            <td class="text-center">1</td>
+                                            <td class="text-center">{{ $index + 1 }}</td>
                                             <td>{{ $item->nama_dokumen }}</td>
                                             <td class="text-center">
                                                 <a href="{{ asset('storage/' . $item->file_dokumen) }}" class="btn btn-primary" download>Download File PDF</a>

@@ -82,74 +82,21 @@
                     </div>
                     <div class="col-md-12">
                         <!-- Tabs navs -->
-<ul class="nav nav-tabs nav-justified mb-3" id="ex1" role="tablist">
-  <li class="nav-item" role="presentation">
-    <a
-      data-mdb-tab-init
-      class="nav-link active"
-      id="ex3-tab-1"
-      href="#ex3-tabs-1"
-      role="tab"
-      aria-controls="ex3-tabs-1"
-      aria-selected="true"
-      >Baru</a
-    >
-  </li>
-  <li class="nav-item" role="presentation">
-    <a
-      data-mdb-tab-init
-      class="nav-link"
-      id="ex3-tab-2"
-      href="#ex3-tabs-2"
-      role="tab"
-      aria-controls="ex3-tabs-2"
-      aria-selected="false"
-      >Pindah Nama</a
-    >
-  </li>
-  <li class="nav-item" role="presentation">
-    <a
-      data-mdb-tab-init
-      class="nav-link"
-      id="ex3-tab-3"
-      href="#ex3-tabs-3"
-      role="tab"
-      aria-controls="ex3-tabs-3"
-      aria-selected="false"
-      >Perpanjang</a
-    >
-  </li>
-</ul>
-<!-- Tabs navs -->
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <button class="nav-link active" id="nav-baru-tab" data-bs-toggle="tab" data-bs-target="#nav-baru" type="button" role="tab" aria-controls="nav-baru" aria-selected="true">Baru</button>
+                                <button class="nav-link" id="nav-perpanjang-tab" data-bs-toggle="tab" data-bs-target="#nav-perpanjang" type="button" role="tab" aria-controls="nav-perpanjang" aria-selected="false">Perpanjang</button>
+                                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button>
+                            </div>
+                        </nav>
+                        {{-- isi Tabs --}}
+                        <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">...</div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">...</div>
+                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">...</div>
+                        <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">...</div>
+                        </div>
 
-<!-- Tabs content -->
-<div class="tab-content" id="ex2-content">
-  <div
-    class="tab-pane fade show active"
-    id="ex3-tabs-1"
-    role="tabpanel"
-    aria-labelledby="ex3-tab-1"
-  >
-    Tab 1 content
-  </div>
-  <div
-    class="tab-pane fade"
-    id="ex3-tabs-2"
-    role="tabpanel"
-    aria-labelledby="ex3-tab-2"
-  >
-    Tab 2 content
-  </div>
-  <div
-    class="tab-pane fade"
-    id="ex3-tabs-3"
-    role="tabpanel"
-    aria-labelledby="ex3-tab-3"
-  >
-    Tab 3 content
-  </div>
-</div>
-<!-- Tabs content -->
                     </div>
                 </div>
             </div>
