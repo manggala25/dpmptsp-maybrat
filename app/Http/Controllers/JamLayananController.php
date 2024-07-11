@@ -63,8 +63,11 @@ class JamLayananController extends Controller
         $jam_layanan->save();
 
         Alert::success('Success', 'Data jam layanan berhasil diperbarui.');
-        return redirect()->back()->with('success', 'Jam layanan berhasil diperbarui.');
+        return redirect()->back()->with('success',
+            'jam_layanan berhasil diperbarui.'
+        );
     }
+
 
 
     // Menghapus data jam layanan

@@ -37,6 +37,7 @@
                 <ul class="list-unstyled footer-list">
                     <li><a href="{{ route('home') }}" class="text-foot"><i class="mdi mdi-chevron-right"></i> Beranda</a></li>
                     <li><a href="{{ route('profil') }}" class="text-foot"><i class="mdi mdi-chevron-right"></i> Profil</a></li>
+                    <li><a href="{{ route('perizinan') }}" class="text-foot"><i class="mdi mdi-chevron-right"></i> Perizinan</a></li>
                     <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right"></i> Layanan</a></li>
                     <li><a href="{{ route('news.index') }}" class="text-foot"><i class="mdi mdi-chevron-right"></i> Artikel</a></li>
                     <li><a href="{{ route('kontak') }}" class="text-foot"><i class="mdi mdi-chevron-right"></i> Kontak</a></li>

@@ -167,54 +167,20 @@
 
                         <div class="job-detail-time border-top pt-4">
                             <ul class="list-inline mb-0">
-                                <li class="clearfix text-muted border-bottom pb-3">
-                                    <div class="float-start">Senin</div>
-                                    <div class="float-end">
-                                        <h5 class="f-13 mb-0">09.00 - 17.00</h5>
-                                    </div>
-                                </li>
-
-                                <li class="clearfix text-muted border-bottom pb-3">
-                                    <div class="float-start">Selasa</div>
-                                    <div class="float-end">
-                                        <h5 class="f-13 mb-0">09.00 - 17.00</h5>
-                                    </div>
-                                </li>
-
-                                <li class="clearfix text-muted border-bottom pb-3">
-                                    <div class="float-start">Rabu</div>
-                                    <div class="float-end">
-                                        <h5 class="f-13 mb-0">09.00 - 17.00</h5>
-                                    </div>
-                                </li>
-
-                                <li class="clearfix text-muted border-bottom pb-3">
-                                    <div class="float-start">Kamis</div>
-                                    <div class="float-end">
-                                        <h5 class="f-13 mb-0">09.00 - 17.00</h5>
-                                    </div>
-                                </li>
-
-                                <li class="clearfix text-muted border-bottom pb-3">
-                                    <div class="float-start">Jum'at</div>
-                                    <div class="float-end">
-                                        <h5 class="f-13 mb-0">09.00 - 17.00</h5>
-                                    </div>
-                                </li>
-
-                                <li class="clearfix text-muted border-bottom pb-3">
-                                    <div class="float-start">Sabtu</div>
-                                    <div class="float-end">
-                                        <h5 class="f-13 mb-0">09.00 - 13.00</h5>
-                                    </div>
-                                </li>
-
-                                <li class="clearfix text-muted pb-0">
-                                    <div class="float-start">Minggu</div>
-                                    <div class="float-end">
-                                        <h5 class="f-13 mb-0 text-danger">Libur</h5>
-                                    </div>
-                                </li>
+                                @foreach ($jam_layanan as $jam_layanan)
+                                    <li class="clearfix text-muted border-bottom pb-3">
+                                        <div class="float-start">{{ $jam_layanan->nama_hari }}</div>
+                                        <div class="float-end">
+                                            <h5 class="f-13 mb-0">
+                                                @if ($jam_layanan->status == 'libur')
+                                                    <span class="text-danger">Libur</span>
+                                                @else
+                                                    {{ substr($jam_layanan->jam_buka, 0, 5) }} - {{ substr($jam_layanan->jam_tutup, 0, 5) }}
+                                                @endif
+                                            </h5>
+                                        </div>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -286,7 +252,7 @@
     {{-- Testimoni & Instansi --}}
 
     {{-- Footer --}}
-    <x-footer :$contact />
+    <x-footer :contact="$contact" :jam_layanan="$jam_layanan" />
     {{-- Footer --}}
 
     <x-script></x-script>
