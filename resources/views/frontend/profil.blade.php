@@ -252,7 +252,7 @@
     {{-- Testimoni & Instansi --}}
 
     {{-- Footer --}}
-    <x-footer :contact="$contact" :jam_layanan="$jam_layanan" />
+    <x-footer :contact="$contact"  />
     {{-- Footer --}}
 
     <x-script></x-script>

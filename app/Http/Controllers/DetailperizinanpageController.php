@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use App\Models\MenuHome;
 
 class DetailperizinanpageController extends Controller
 {
     public function show()
     {
         $contact = Contact::all();
-        return view('frontend.detail-perizinan', compact('contact'));
+        $menuhome = MenuHome::findOrFail(1);
+        return view('frontend.detail-perizinan', compact('contact', 'menuhome'));
     }
 }

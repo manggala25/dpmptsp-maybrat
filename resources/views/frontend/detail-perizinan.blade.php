@@ -16,7 +16,7 @@
     <!-- Loader -->
 
     <!-- Navigation Bar-->
-    <x-navbar :$contact/>
+    <x-navbar :$contact :menuhome="$menuhome"/>
     <!-- Navigation Bar-->
 
     <!-- Start home -->
@@ -92,7 +92,7 @@
       role="tab"
       aria-controls="ex3-tabs-1"
       aria-selected="true"
-      >Link</a
+      >Baru</a
     >
   </li>
   <li class="nav-item" role="presentation">
@@ -104,7 +104,7 @@
       role="tab"
       aria-controls="ex3-tabs-2"
       aria-selected="false"
-      >Very very very very long link</a
+      >Pindah Nama</a
     >
   </li>
   <li class="nav-item" role="presentation">
@@ -116,7 +116,7 @@
       role="tab"
       aria-controls="ex3-tabs-3"
       aria-selected="false"
-      >Another link</a
+      >Perpanjang</a
     >
   </li>
 </ul>
