@@ -80,7 +80,7 @@
     <!-- CONTACT END -->
 
     {{-- Footer --}}
-    <x-footer :$contact />
+    <x-footer :$contact :menuhome="$menuhome" :jamlayanan="$jamlayanan" />
     {{-- Footer --}}
     
     <x-script></x-script>

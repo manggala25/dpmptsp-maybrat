@@ -7,6 +7,7 @@ use App\Models\Contact;
 use App\Models\MenuHome;
 use App\Models\MenuKontak;
 use App\Models\Dokumen;
+use App\Models\JamLayanan;
 
 class DownloadpageController extends Controller
 {
@@ -21,7 +22,8 @@ class DownloadpageController extends Controller
         $menuhome = MenuHome::findOrFail(1);
         $menukontak = MenuKontak::first();
         $dokumen = Dokumen::where('status', 'aktif')->get();
+        $jamlayanan = JamLayanan::all();
 
-        return view('frontend.download', compact('contact', 'gmaps_embed', 'menuhome', 'menukontak', 'dokumen'));
+        return view('frontend.download', compact('contact', 'gmaps_embed', 'menuhome', 'menukontak', 'dokumen', 'jamlayanan'));
     }
 }

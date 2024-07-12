@@ -252,7 +252,7 @@
     {{-- Testimoni & Instansi --}}
 
     {{-- Footer --}}
-    <x-footer :contact="$contact"  />
+    <x-footer :contact="$contact"  :jamlayanan="$jamlayanan" :menuhome="$menuhome"/>
     {{-- Footer --}}
 
     <x-script></x-script>

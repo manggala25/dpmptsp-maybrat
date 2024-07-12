@@ -7,6 +7,7 @@ use App\Models\Contact;
 use App\Models\News;
 use App\Models\MenuHome;
 use App\Models\MenuArtikel;
+use App\Models\JamLayanan;
 use Illuminate\Database\Eloquent\ModelNotFoundException; // Import exception
 
 class DetailartikelpageController extends Controller
@@ -14,6 +15,7 @@ class DetailartikelpageController extends Controller
     public function index()
     {
         $contact = Contact::all();
+        $jamlayanan = JamLayanan::all();
 
         // Ambil data artikel
         $news = News::where('status', 'published')
@@ -25,7 +27,7 @@ class DetailartikelpageController extends Controller
         // Ambil satu data dari MenuArtikel
         $menuartikel = MenuArtikel::first();
 
-        return view('frontend.artikel', compact('contact', 'news', 'menuhome', 'menuartikel'));
+        return view('frontend.artikel', compact('contact', 'news', 'menuhome', 'menuartikel', 'jamlayanan'));
     }
 
     public function show($slug)
@@ -42,7 +44,8 @@ class DetailartikelpageController extends Controller
         $contact = Contact::all();
         $menuhome = MenuHome::findOrFail(1);
         $menuartikel = MenuArtikel::first();
+        $jamlayanan = JamLayanan::all();
 
-        return view('frontend.detail-artikel', compact('article', 'contact', 'menuhome', 'menuartikel'));
+        return view('frontend.detail-artikel', compact('article', 'contact', 'menuhome', 'menuartikel', 'jamlayanan'));
     }
 }

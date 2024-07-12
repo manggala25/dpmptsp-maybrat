@@ -10,12 +10,14 @@ use App\Models\Layanan;
 use App\Models\News; // Import model News
 use App\Models\MenuHome;
 use App\Models\MenuArtikel;
+use App\Models\JamLayanan;
 
 class ArtikelpageController extends Controller
 {
     public function index()
     {
         $contact = Contact::all();
+        $jamlayanan = JamLayanan::all();
 
         // Ambil data artikel
         $news = News::where('status', 'published')
@@ -27,7 +29,7 @@ class ArtikelpageController extends Controller
         // Ambil satu data dari MenuArtikel
         $menuartikel = MenuArtikel::first();
 
-        return view('frontend.artikel', compact('contact', 'news', 'menuhome', 'menuartikel'));
+        return view('frontend.artikel', compact('contact', 'news', 'menuhome', 'menuartikel', 'jamlayanan'));
     }
 
     public function show($slug)

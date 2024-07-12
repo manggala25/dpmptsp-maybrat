@@ -77,7 +77,7 @@
     <!-- blog end -->
 
     {{-- Footer --}}
-    <x-footer :$contact :menuhome="$menuhome"/>
+    <x-footer :$contact :menuhome="$menuhome" :jamlayanan="$jamlayanan"/>
     {{-- Footer --}}
 
     <x-script></x-script>

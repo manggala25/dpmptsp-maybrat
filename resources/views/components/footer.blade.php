@@ -38,17 +38,21 @@
                     <li><a href="{{ route('home') }}" class="text-foot"><i class="mdi mdi-chevron-right"></i> Beranda</a></li>
                     <li><a href="{{ route('profil') }}" class="text-foot"><i class="mdi mdi-chevron-right"></i> Profil</a></li>
                     <li><a href="{{ route('perizinan') }}" class="text-foot"><i class="mdi mdi-chevron-right"></i> Perizinan</a></li>
-                    <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right"></i> Layanan</a></li>
+                    <li><a href="{{ route('download') }}" class="text-foot"><i class="mdi mdi-chevron-right"></i> Download</a></li>
                     <li><a href="{{ route('news.index') }}" class="text-foot"><i class="mdi mdi-chevron-right"></i> Artikel</a></li>
                     <li><a href="{{ route('kontak') }}" class="text-foot"><i class="mdi mdi-chevron-right"></i> Kontak</a></li>
                 </ul>
             </div>
             <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                <p class="text-white mb-4 footer-list-title f-17">Jadwal Layanan</p>
+                <p class="text-white mb-4 footer-list-title f-17">Jadwal Layanan (WITA)</p>
                 <ul class="list-unstyled text-foot mt-4 mb-0">
-                    <li>Senin - Jum'at : 9:00 - 17:00</li>
-                    <li class="mt-2">Sabtu : 10:00 - 15:00</li>
-                    <li class="mt-2">Minggu : Libur </li>
+                    @foreach ($jamlayanan as $layanan)
+                    <li>{{ $layanan->nama_hari }} : @if ($layanan->status == 'libur')
+                                                    <span class="text-danger">Libur</span>
+                                                @else
+                                                    {{ substr($layanan->jam_buka, 0, 5) }} - {{ substr($layanan->jam_tutup, 0, 5) }}
+                                                @endif</li>
+                    @endforeach
                 </ul>
             </div>
         </div>

@@ -29,24 +29,31 @@ use App\Http\Controllers\MenuHomeController;
 use App\Http\Controllers\MenuProfilController;
 use App\Http\Controllers\MenuArtikelController;
 use App\Http\Controllers\MenuKontakController;
-
-
+use App\Http\Controllers\PerizinansController;
+use App\Http\Controllers\PersyaratanController;
+use App\Http\Controllers\KategoriPersyaratanController;
+use App\Http\Controllers\TahapanPengajuanController;
 
 //route frontend
 //home
 Route::get('/', [HomepageController::class, 'index'])->name('home');
+
 //profil
 Route::get('/profil', [ProfilpageController::class, 'index'])->name('profil');
-//perizinan
+
+//perizinan dan detailnya
 Route::get('/perizinan', [PerizinanpageController::class, 'index'])->name('perizinan');
-Route::get('/detail-perizinan', [PerizinanpageController::class, 'detail-perizinan'])->name('detail-perizinan');
-Route::get('/detail-perizinan', [DetailperizinanpageController::class, 'show'])->name('detail-perizinan');
+Route::get('/perizinan/{slug}', [DetailperizinanpageController::class, 'show'])->name('detail-perizinan');
+Route::get('/detail-perizinan/{slug}', [DetailperizinanpageController::class, 'show'])->name('detail-perizinan');
+
 // Rute artikel
 Route::get('/artikel', [ArtikelpageController::class, 'index'])->name('artikel');
 Route::get('/detail-artikel/{slug}', [ArtikelpageController::class, 'show'])->name('detail-artikel');
 Route::get('/artikel/{slug}', [DetailartikelpageController::class, 'show'])->name('detail.artikel');
+
 //contact
 Route::get('/kontak', [KontakpageController::class, 'index'])->name('kontak');
+
 //download
 Route::get('/download', [DownloadpageController::class, 'index'])->name('download');
 
@@ -69,6 +76,22 @@ Route::middleware('auth')->group(function () {
     // Portal Routes
     Route::resource('portal', PortalController::class)->except(['destroy']);
     Route::delete('/portal/{id}', [PortalController::class, 'destroy'])->name('portal.destroy');
+
+    ///////////////// Data Perizinan Routes/////////////////
+    // Data Perizinan Routes
+    Route::resource('perizinans', PerizinansController::class)->except(['destroy']);
+    Route::delete('/perizinans/{id}', [PerizinansController::class, 'destroy'])->name('perizinans.destroy');
+    Route::put('perizinans/{id}', [PerizinansController::class, 'update'])->name('perizinans.update');
+
+    // Data Persyaratan Routes
+    Route::resource('persyaratan', PersyaratanController::class)->except(['destroy']);
+    Route::delete('/persyaratan/{id}', [PersyaratanController::class, 'destroy'])->name('persyaratan.destroy');
+    Route::put('persyaratan/{id}', [PersyaratanController::class, 'update'])->name('persyaratan.update');
+    
+    // Data Kategori Perizinan Routes
+    Route::resource('kategoripersyaratan', KategoriPersyaratanController::class)->except(['destroy']);
+    Route::delete('/kategoripersyaratan/{id}', [KategoriPersyaratanController::class, 'destroy'])->name('kategoripersyaratan.destroy');
+    Route::put('kategoripersyaratan/{id}', [KategoriPersyaratanController::class, 'update'])->name('kategoripersyaratan.update');
 
     // Data Dokumen Routes
     Route::resource('dokumen', DokumenController::class)->except(['destroy']);
@@ -120,6 +143,10 @@ Route::middleware('auth')->group(function () {
     // Contact Routes
     Route::resource('contact', ContactController::class)->except(['destroy']);
     Route::delete('/contact/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
+
+    // Tahapan Proses Pengajuan Routes
+    Route::resource('tahapanpengajuan', TahapanPengajuanController::class)->except(['destroy']);
+    Route::delete('/tahapanpengajuan/{id}', [TahapanPengajuanController::class, 'destroy'])->name('tahapanpengajuan.destroy');
 
     // Partners Routes
     Route::resource('partners', PartnersController::class)->except(['destroy']);

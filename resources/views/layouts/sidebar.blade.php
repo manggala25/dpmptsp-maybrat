@@ -108,6 +108,30 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link {{ Request::is('perizinans') ? 'active' : '' }}" href="{{ url('perizinans') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-paper-diploma text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Data Perizinan</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('persyaratan') ? 'active' : '' }}" href="{{ url('persyaratan') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-paper-diploma text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Data Persyaratan</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('kategoripersyaratan') ? 'active' : '' }}" href="{{ url('kategoripersyaratan') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-paper-diploma text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Kategori Persyaratan</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link {{ Request::is('dokumen') ? 'active' : '' }}" href="{{ url('dokumen') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-paper-diploma text-dark text-sm opacity-10"></i>
@@ -153,6 +177,14 @@
                         <i class="ni ni-collection text-info text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Contact</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('tahapanpengajuan') ? 'active' : '' }}" href="{{ url('tahapanpengajuan') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-collection text-info text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Tahapan Pengajuan</span>
                 </a>
             </li>
             

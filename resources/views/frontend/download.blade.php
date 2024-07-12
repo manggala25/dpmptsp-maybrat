@@ -20,7 +20,7 @@
     <!-- Navigation Bar-->
     
     <!-- Start home -->
-    <section class="bg-half page-next-level" style="background-image: url('{{ asset('storage/'. $menukontak-> bg_hero) }}');"> 
+    <section class="bg-half page-next-level" style="background-image: url('{{ asset('storage/'. $menuhome->bg_hero) }}');"> 
         <div class="bg-overlay"></div>
         <div class="container">
             <div class="row justify-content-center">
@@ -80,7 +80,7 @@
     <!-- blog end -->
 
     {{-- Footer --}}
-    <x-footer :$contact />
+    <x-footer :$contact :menuhome="$menuhome" :jamlayanan="$jamlayanan"/>
     {{-- Footer --}}
     
     <x-script></x-script>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Models\MenuHome;
 use App\Models\MenuKontak;
+use App\Models\JamLayanan;
 
 class KontakpageController extends Controller
 {
@@ -19,7 +20,8 @@ class KontakpageController extends Controller
 
         $menuhome = MenuHome::findOrFail(1);
         $menukontak = MenuKontak::first();
+        $jamlayanan = JamLayanan::all();
 
-        return view('frontend.kontak', compact('contact', 'gmaps_embed', 'menuhome', 'menukontak'));
+        return view('frontend.kontak', compact('contact', 'gmaps_embed', 'menuhome', 'menukontak', 'jamlayanan'));
     }
 }

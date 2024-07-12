@@ -35,9 +35,10 @@ class ProfilpageController extends Controller
             ->orderByRaw("CASE WHEN nama_informasi = 'Alamat Kantor' THEN 0 ELSE 1 END, nama_informasi")
             ->get();
         $menuhome = MenuHome::findOrFail(1);
+        $jamlayanan = JamLayanan::all();
         $jam_layanan = JamLayanan::all();
         // dd($jam_layanan);
 
-        return view('frontend.profil', compact('contact', 'tugas_dinas', 'fungsi', 'layanan', 'testimoni', 'partners', 'kontak', 'profile_dinas', 'publikasi', 'menuhome', 'program_kerja', 'menuprofil', 'jam_layanan'));
+        return view('frontend.profil', compact('contact', 'tugas_dinas', 'fungsi', 'layanan', 'testimoni', 'partners', 'kontak', 'profile_dinas', 'publikasi', 'menuhome', 'program_kerja', 'menuprofil', 'jamlayanan', 'jam_layanan'));
     }
 }

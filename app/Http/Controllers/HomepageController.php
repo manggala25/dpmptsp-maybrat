@@ -12,6 +12,7 @@ use App\Models\ProfileDinas;
 use App\Models\Testimoni;
 use App\Models\Partners;
 use App\Models\MenuHome;
+use App\Models\JamLayanan;
 
 class HomepageController extends Controller
 {
@@ -30,8 +31,9 @@ class HomepageController extends Controller
             $short_description = $this->limitDescription($profile_dinas->deskripsi, 600);
 
             $menuhome = MenuHome::findOrFail(1);
+            $jamlayanan = JamLayanan::all();
 
-            return view('frontend.index', compact('contact', 'tugas_dinas', 'fungsi', 'layanan', 'profile_dinas', 'short_description', 'portal', 'testimoni', 'partners', 'menuhome'));
+            return view('frontend.index', compact('contact', 'tugas_dinas', 'fungsi', 'layanan', 'profile_dinas', 'short_description', 'portal', 'testimoni', 'partners', 'menuhome', 'jamlayanan'));
         } catch (\Exception $e) {
             return redirect()->route('home')->with('error', 'Terjadi kesalahan dalam mengambil data.');
         }

@@ -20,7 +20,7 @@
     <!-- Navigation Bar-->
 
     <!-- Start home -->
-    <section class="bg-half page-next-level" style="background-image: url('{{ asset('storage/images/pemerintah-maybrat.jpg') }}');"> 
+    <section class="bg-half page-next-level" style="background-image: url('{{ asset('storage/' . $menuhome->bg_hero) }}');"> 
         <div class="bg-overlay"></div>
         <div class="container">
             <div class="row justify-content-center">
@@ -49,39 +49,32 @@
                             <h4 class="card-title text-primary">Data Perizinan</h4>
                         </div>
                         <div class="card-body">
-                            <table id="dataPerizinan" class="table table-striped table-responsive" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Nama Jenis Izin</th>
-                                        <th>Durasi (Hari)</th>
-                                        <th>Bidang Izin</th>
-                                        <th class="text-center">Opsi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Izin jam operasional toko modern (IJOTM)</td>
-                                        <td>5 Hari</td>
-                                        <td class="text-muted">Bidang Usaha Perdagangan</td>
-                                        <td class="text-center">
-                                            <a href="{{ route('detail-perizinan') }}" class="btn btn-primary">Detail Persyaratan</a>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Pengajuan Rekomendasi PBG</td>
-                                        <td>5 Hari</td>
-                                        <td class="text-muted">Sistem Informasi Manajemen Bangunan Gedung (SIMBG)</td>
-                                        <td class="text-center">
-                                            <a href="{{ route('detail-perizinan') }}" class="btn btn-primary">Detail Persyaratan</a>
-
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="table-responsive">
+                                <table id="dataPerizinan" class="table table-striped" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nama Jenis Izin</th>
+                                            <th>Durasi (Hari)</th>
+                                            <th>Bidang Izin</th>
+                                            <th class="text-center">Opsi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($perizinan as $izin)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $izin->nama_izin }}</td>
+                                            <td>{{ $izin->lama_proses }}</td>
+                                            <td class="text-muted">{{ $izin->bidang_izin }}</td>
+                                            <td class="text-center">
+                                                <a href="{{ route('detail-perizinan', ['slug' => $izin->slug]) }}" class="btn btn-primary">Detail Persyaratan</a>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div> 
                 </div>
@@ -91,7 +84,7 @@
     <!-- blog end -->
 
     {{-- Footer --}}
-    <x-footer :$contact />
+    <x-footer :$contact :menuhome="$menuhome" :jamlayanan="$jamlayanan"/>
     {{-- Footer --}}
 
     <x-script></x-script>
