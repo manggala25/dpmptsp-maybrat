@@ -37,21 +37,23 @@
                             </div>
                         </div>
                     </div>
-                    <div class="home-form-position">
+
+                    <!-- Form Pencarian -->
+                    <div class="home-form-position mb-4">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="home-registration-form p-4 mb-3">
-                                    <form class="registration-form">
+                                    <form class="registration-form" id="searchForm" action="{{ route('perizinan') }}" method="GET">
                                         <div class="row">
                                             <div class="col-lg-10 col-md-12">
                                                 <div class="registration-form-box">
                                                     <i class="fa fa-briefcase"></i>
-                                                    <input type="text" id="exampleInputName1" class="form-control rounded registration-input-box" placeholder="Apa yang anda cari?">
+                                                    <input type="text" name="nama" id="serviceName" class="form-control rounded registration-input-box" placeholder="Ketik Nama Izin Disini!" value="{{ request('nama') }}">
                                                 </div>
                                             </div>
                                             <div class="col-lg-2 col-md-4">
                                                 <div class="registration-form-box">
-                                                    <input type="submit" id="submit" name="send" class="submitBnt btn btn-primary btn-block" value="Cari">
+                                                    <input type="submit" id="submit" class="submitBnt btn btn-primary btn-block" value="Cari">
                                                 </div>
                                             </div>
                                         </div>
@@ -60,6 +62,8 @@
                             </div>
                         </div>
                     </div>
+                    <!-- End Form Pencarian -->
+
                 </div>
             </div>
         </div>

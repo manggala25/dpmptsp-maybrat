@@ -14,20 +14,27 @@ use App\Models\JamLayanan;
 
 class PerizinanpageController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $contact = Contact::all();
         $tugas_dinas = TugasDinas::where('status', 'aktif')->get();
         $fungsi = Fungsi::where('status', 'aktif')->get();
         $layanan = Layanan::where('status', 'aktif')->get();
         $menuhome = MenuHome::findOrFail(1);
-        $perizinan = Perizinan::where('status', 'aktif')->get();
         $jamlayanan = JamLayanan::all();
 
         // Ambil data artikel
         $news = News::where('status', 'published')
             ->orderBy('tanggal_publikasi', 'desc')
-            ->paginate(10); // Gunakan paginate untuk pagination
+            ->paginate(10); 
+
+        // Pencarian
+        $namaIzin = $request->query('nama');
+        $perizinan = Perizinan::where('status', 'aktif')
+            ->when($namaIzin, function ($query, $namaIzin) {
+                return $query->where('nama_izin', 'like', '%' . $namaIzin . '%');
+            })
+            ->get();
 
         return view('frontend.perizinan', compact('contact', 'tugas_dinas', 'fungsi', 'layanan', 'news', 'menuhome', 'perizinan', 'jamlayanan'));
     }
