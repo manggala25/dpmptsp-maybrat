@@ -7,6 +7,8 @@ use App\Models\Partners;
 use App\Models\Layanan;
 use App\Models\Portal;
 use App\Models\Publikasi;
+use App\Models\Perizinan;
+use App\Models\Dokumen;
 
 class DashboardController extends Controller
 {
@@ -17,7 +19,9 @@ class DashboardController extends Controller
         $jumlahLayanan = Layanan::where('status', 'aktif')->count();
         $jumlahPortal = Portal::where('status', 'aktif')->count();
         $aktifPublikasi = Publikasi::where('status', 'aktif')->get();
+        $perizinans = Perizinan::all();
+        $dokumen = Dokumen::all();
 
-        return view('dashboard', compact('jumlahBerita', 'jumlahPartner', 'jumlahLayanan', 'jumlahPortal', 'aktifPublikasi'));
+        return view('dashboard', compact('jumlahBerita', 'jumlahPartner', 'jumlahLayanan', 'jumlahPortal', 'aktifPublikasi', 'perizinans', 'dokumen'));
     }
 }
